@@ -1,0 +1,5 @@
+Metric,Random Forest,LLM (Qwen2.5-1.5B)
+Mean unseen recall - Edge-IIoTset (14 folds),1.000,0.929
+Mean unseen recall - N-BaIoT (8 folds),0.986,0.935
+  ...N-BaIoT gafgyt family (5 folds),0.978,0.996
+  ...N-BaIoT mirai family (3 folds),1.000,0.834

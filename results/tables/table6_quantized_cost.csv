@@ -1,0 +1,3 @@
+Precision,Size,Latency (ms),Power (W),Energy (mJ)
+INT8 (Q8_0),1.76 GiB,197,6.97,1374
+4-bit (Q4_K_M),1.04 GiB,211,7.61,1607

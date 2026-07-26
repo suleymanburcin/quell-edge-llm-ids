@@ -83,6 +83,35 @@ docs/        Edge (Jetson) setup log
 
 INT8 quantization is near-lossless (delta macro-F1 = -0.0002) and is required only to fit the model on the device.
 
+## Reproducing the paper's tables and figures
+
+Every reported number derives from the committed `results/*.json`. No GPU, dataset download, or
+training is needed to regenerate the tables and figures — a reviewer can confirm every value in
+seconds:
+
+```
+python scripts/reproduce_tables.py    # Tables 3-10 -> stdout + results/tables/*.csv
+python figures/make_fig4.py           # Figure 4  (cost-accuracy trade-off)
+python figures/make_fig5.py           # Figure 5  (unknown-attack generalization)
+python figures/make_fig6.py           # Figure 6  (adversarial robustness)
+python figures/verify_figures.py      # asserts every figure value == results/*.json
+```
+
+### Research questions → evidence → command
+
+| RQ | Question | Table / Figure | Regenerate with |
+|---|---|---|---|
+| RQ1 | Detection quality vs. classical ML | Table 3 | `reproduce_tables.py` (raw: `04_baseline_ml`, `05_*`, `05_5/05_6`) |
+| RQ2 | On-device cost (latency / energy / memory) | Tables 5–7, Fig 4 | `reproduce_tables.py`, `make_fig4.py` (raw: `07_jetson_bench.py`) |
+| RQ3 | Unknown-attack generalization | Table 8, Fig 5 | `reproduce_tables.py`, `make_fig5.py` (raw: `08`, `08b`, `08c`) |
+| RQ4 | Adversarial-evasion robustness | Table 9, Fig 6 | `reproduce_tables.py`, `make_fig6.py` (raw: `09`, `09b`) |
+| — | Accuracy retention under quantization | Table 4 | `reproduce_tables.py` (raw: `06_quantize_save`) |
+| — | Axis-by-axis verdict | Table 10 | `reproduce_tables.py` |
+
+To regenerate the raw `results/*.json` from scratch, download the three datasets into `data/raw/` and
+run the numbered pipeline in order; the leakage-safe split indices regenerate deterministically from a
+fixed seed via `scripts/03_preprocess_split.ipynb` (documented in `results/split_report.json`).
+
 ## Figures and their integrity
 Figures 4-6 are regenerated from the raw results by standalone scripts:
 

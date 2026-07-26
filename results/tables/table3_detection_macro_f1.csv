@@ -1,0 +1,4 @@
+Dataset,XGBoost,RandomForest,GPT-2-medium,Qwen2.5-1.5B
+Edge-IIoTset,0.987,0.971,0.822,0.919
+CICIoT2023,0.762,0.748,0.475,0.571
+N-BaIoT,0.816,0.817,0.618,0.688

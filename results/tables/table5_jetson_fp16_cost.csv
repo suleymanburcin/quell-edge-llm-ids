@@ -1,0 +1,4 @@
+Model,Params,Latency (ms),Peak mem (MB),Power (W),Energy (mJ)
+gpt2-medium,355M,47.4,800,13.6,641.6
+Qwen/Qwen2.5-0.5B,494M,81.7,1021,12.5,1018.0
+Qwen/Qwen2.5-1.5B,1540M,-,did not fit,-,-

@@ -1,0 +1,3 @@
+Precision,macro-F1,Accuracy
+FP16 (merged),0.9291,0.9635
+INT8,0.9289,0.9628

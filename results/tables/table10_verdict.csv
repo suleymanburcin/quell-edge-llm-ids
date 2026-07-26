@@ -1,0 +1,5 @@
+Axis,Better detector,Margin
+"Clean accuracy (Edge, matched multi-seed)",Random Forest / XGBoost,RF 0.971 / XGB 0.987 vs LLM 0.919
+On-device cost (latency/energy),Random Forest,~10x (batch-1) to ~3500x (throughput)
+Unknown-attack generalization,Random Forest,Edge RF 1.00 vs 0.93; N-BaIoT RF 0.99 vs 0.94 (LLM ahead only on gafgyt family)
+Adversarial robustness,Random Forest,"Edge 0.90 vs 0.04, 0% vs 56% evasion; N-BaIoT RF ~2x, 24% vs 44%"
