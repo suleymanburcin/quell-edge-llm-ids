@@ -65,7 +65,7 @@ docs/        Edge (Jetson) setup log
 | Matched baselines (CICIoT2023, N-BaIoT) | `scripts/05_6_baseline_matched.ipynb` | `results/baseline_matched_report.json` |
 | Quantization + accuracy retention | `scripts/06_quantize_save.ipynb` | `results/quant_report.json` |
 | On-device cost (Jetson) | `scripts/07_jetson_bench.py` (+ llama.cpp) | `results/jetson_fp16.json`, `jetson_llama_power.json`, `jetson_rf_cpu.json` |
-| Unknown-attack generalization | `scripts/08_generalization_unseen.ipynb`, `08b_generalization_nbaiot.ipynb` | `results/generalization_report.json` |
+| Unknown-attack generalization | `scripts/08_generalization_unseen.ipynb`, `08b_generalization_nbaiot.ipynb`, `08c_generalization_nbaiot_rest.ipynb` | `results/generalization_report.json`, `generalization_report_nbaiot_rest.json` |
 | Adversarial robustness | `scripts/09_adversarial.ipynb`, `09b_adversarial_nbaiot.ipynb` | `results/adversarial_report.json`, `adversarial_report_nbaiot.json` |
 
 ## Results at a glance
@@ -76,7 +76,8 @@ docs/        Edge (Jetson) setup log
 | Clean macro-F1, CICIoT2023 (matched) | **0.748 / 0.762** | 0.571 |
 | Clean macro-F1, N-BaIoT (matched) | **0.817 / 0.816** | 0.688 |
 | On-device latency / energy (Jetson, batch-1) | **~20.8 ms / ~140 mJ** | 197 ms / 1374 mJ (INT8) |
-| Unknown-attack mean recall (Edge-IIoTset) | **1.000** | 0.929 |
+| Unknown-attack mean recall (Edge-IIoTset, 14 folds) | **1.000** | 0.929 |
+| Unknown-attack mean recall (N-BaIoT, 8 folds) | **0.986** | 0.935 |
 | Adversarial macro-F1 at eps=0.1 (Edge-IIoTset) | **0.90** | 0.04 |
 | Black-box evasion (Edge-IIoTset / N-BaIoT) | **0% / 24%** | 56% / 44% |
 

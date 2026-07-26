@@ -1,0 +1,65 @@
+{
+  "figure": "QUELL Fig 6 - adversarial robustness (noise sweep + black-box evasion)",
+  "protocol": "Black-box, feature-space Gaussian perturbation of magnitude eps (x per-feature train std); identical budget for both detectors.",
+  "provenance": {
+    "edge": "results/adversarial_report.json (Edge-IIoTset run)",
+    "nbaiot": "results/adversarial_report_nbaiot.json"
+  },
+  "x_axis": "Perturbation magnitude ε (× per-feature std)",
+  "y_axis": "Detection quality (macro-F1)",
+  "eps": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "panels": [
+    {
+      "name": "Edge-IIoTset",
+      "rf": [
+        0.9715,
+        0.8985,
+        0.8839,
+        0.8659,
+        0.8499
+      ],
+      "llm": [
+        0.9331,
+        0.043,
+        0.0408,
+        0.042,
+        0.0342
+      ],
+      "evasion": {
+        "eps": 0.3,
+        "rf": 0.0,
+        "llm": 0.559
+      },
+      "note": "LLM collapses at ε=0.1 (0.93 → 0.04)"
+    },
+    {
+      "name": "N-BaIoT",
+      "rf": [
+        0.6941,
+        0.3636,
+        0.2449,
+        0.1801,
+        0.1334
+      ],
+      "llm": [
+        0.6896,
+        0.18,
+        0.1191,
+        0.0737,
+        0.0454
+      ],
+      "evasion": {
+        "eps": 0.3,
+        "rf": 0.236,
+        "llm": 0.444
+      },
+      "note": "RF ≈ 2× LLM at every ε"
+    }
+  ]
+}
