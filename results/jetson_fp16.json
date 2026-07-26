@@ -1,0 +1,18 @@
+{
+  "device": "jetson_orin_nano_super",
+  "jetpack": "6.2 / L4T R36.4.7",
+  "torch": "2.5.0a0+nv24.08",
+  "dtype": "fp16",
+  "note": "score head randomly initialized — valid for COST measurement (latency/energy/memory are independent of weight values, same as the architecture). The desktop GUI uses ~4.8 GB; ~4 GB free.",
+  "iters": 50, "warmup": 5, "max_len": 256, "batch": 1,
+  "results": [
+    {"model": "gpt2-medium",       "params_m": 355, "status": "ok",
+     "latency_ms_avg": 47.37, "latency_ms_p95": 54.06, "throughput_fps": 21.11,
+     "peak_gpu_mem_mb": 800.4, "avg_board_power_w": 13.55, "energy_per_inf_mj": 641.6},
+    {"model": "Qwen/Qwen2.5-0.5B",  "params_m": 494, "status": "ok",
+     "latency_ms_avg": 81.70, "latency_ms_p95": 84.44, "throughput_fps": 12.24,
+     "peak_gpu_mem_mb": 1021.2, "avg_board_power_w": 12.46, "energy_per_inf_mj": 1018.0},
+    {"model": "Qwen/Qwen2.5-1.5B",  "params_m": 1540, "status": "load_failed_oom",
+     "error": "NVML assert @ CUDACachingAllocator:838 — ~3.1 GB weights, only 3.2 GB free (GUI active). FP16 did not fit -> quantization required."}
+  ]
+}

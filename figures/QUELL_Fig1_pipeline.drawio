@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" version="24.7.0" type="device">
+  <diagram name="Fig1-Pipeline" id="quell-fig1-v2">
+    <mxGraphModel dx="1680" dy="520" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1680" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="lbl" value="&lt;b&gt;Three heterogeneous IoT datasets&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="230" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ds1" value="&lt;b&gt;Edge-IIoTset&lt;/b&gt;&lt;br&gt;15 classes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="76" width="175" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="ds2" value="&lt;b&gt;CICIoT2023&lt;/b&gt;&lt;br&gt;34 classes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="146" width="175" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="ds3" value="&lt;b&gt;N-BaIoT&lt;/b&gt;&lt;br&gt;11 classes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;verticalAlign=middle;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="216" width="175" height="54" as="geometry" />
+        </mxCell>
+
+        <mxCell id="split" value="&lt;b&gt;Leakage-safe, session-aware split&lt;/b&gt;&lt;br&gt;&lt;br&gt;per-class temporal · stratified + dedup&lt;br&gt;· session-grouped&lt;br&gt;&lt;br&gt;&lt;i&gt;transforms fit on train only&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;verticalAlign=middle;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="270" y="98" width="235" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rf" value="&lt;b&gt;Classical baselines&lt;/b&gt;&lt;br&gt;Random Forest · XGBoost&lt;br&gt;(numeric features)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;verticalAlign=middle;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="66" width="240" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="llm" value="&lt;b&gt;LLM-IDS&lt;/b&gt;&lt;br&gt;feature→text encoding&lt;br&gt;(Q)LoRA fine-tune&lt;br&gt;GPT-2-medium · Qwen2.5-0.5B/1.5B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;verticalAlign=middle;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="196" width="240" height="112" as="geometry" />
+        </mxCell>
+
+        <mxCell id="quant" value="&lt;b&gt;Quantization&lt;/b&gt;&lt;br&gt;FP16 / INT8 / 4-bit&lt;br&gt;(GGUF · llama.cpp on edge)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;verticalAlign=middle;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="850" y="200" width="215" height="104" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge" value="&lt;b&gt;Edge deployment&lt;/b&gt;&lt;br&gt;NVIDIA Jetson Orin Nano&lt;br&gt;(MAXN_SUPER, fixed clocks)&lt;br&gt;tegrastats power" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;verticalAlign=middle;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="104" width="230" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eval" value="&lt;b&gt;Six-axis evaluation&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Detection quality (macro-F1, per-class)&lt;br&gt;• Inference latency / throughput&lt;br&gt;• Energy per inference&lt;br&gt;• Peak memory&lt;br&gt;• Unknown-attack generalization&lt;br&gt;• Adversarial robustness" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=12;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;verticalAlign=middle;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="56" width="255" height="256" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#555555;strokeWidth=1.5;" edge="1" parent="1" source="ds1" target="split"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#555555;strokeWidth=1.5;" edge="1" parent="1" source="ds2" target="split"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#555555;strokeWidth=1.5;" edge="1" parent="1" source="ds3" target="split"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#555555;strokeWidth=1.5;" edge="1" parent="1" source="split" target="rf"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#555555;strokeWidth=1.5;" edge="1" parent="1" source="split" target="llm"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#555555;strokeWidth=1.5;" edge="1" parent="1" source="llm" target="quant"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#555555;strokeWidth=1.5;" edge="1" parent="1" source="quant" target="edge"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#555555;strokeWidth=1.5;" edge="1" parent="1" source="rf" target="edge"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#555555;strokeWidth=1.5;" edge="1" parent="1" source="edge" target="eval"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper below."
+title: "QUELL: An On-Device Benchmark of Quantized Edge LLMs versus Classical Machine Learning for IoT Intrusion Detection"
+authors:
+  - family-names: "TO BE ADDED"
+    given-names: "TO BE ADDED"
+    affiliation: "Sinop University"
+date-released: "TO BE ADDED"
+license: MIT
+repository-code: "TO BE ADDED"

@@ -1,0 +1,35 @@
+{
+  "dataset": "nbaiot",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "benign": "benign",
+  "noise_curve": {
+    "eps": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "rf_macro_f1": [
+      0.6941,
+      0.3636,
+      0.2449,
+      0.1801,
+      0.1334
+    ],
+    "llm_macro_f1": [
+      0.6896,
+      0.18,
+      0.1191,
+      0.0737,
+      0.0454
+    ]
+  },
+  "evasion": {
+    "n_samples": 800,
+    "tries": 20,
+    "eps": 0.3,
+    "rf_evasion_rate": 0.2362,
+    "llm_evasion_rate": 0.4437
+  }
+}

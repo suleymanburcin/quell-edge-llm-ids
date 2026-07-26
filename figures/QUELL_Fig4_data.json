@@ -1,0 +1,19 @@
+{
+  "figure": "QUELL Fig 4 - cost-accuracy trade-off",
+  "dataset": "Edge-IIoTset",
+  "device": "NVIDIA Jetson Orin Nano (MAXN_SUPER, jetson_clocks), batch-1",
+  "x_axis": "Energy per inference (mJ, batch-1, log scale)",
+  "y_axis": "Detection quality (macro-F1)",
+  "provenance": {
+    "RF_energy_mJ": "results/jetson_rf_cpu.json -> batch1_energy_per_inf_mj",
+    "GPT2_energy_mJ": "results/jetson_fp16.json -> gpt2-medium.energy_per_inf_mj",
+    "QwenINT8_energy_mJ": "results/jetson_llama_power.json -> results_final.int8_q8_0.energy_per_inf_mj",
+    "macro_f1": "matched multi-seed (RF) / LLM report (Edge-IIoTset full test)"
+  },
+  "points": [
+    {"label": "Random Forest", "detail": "CPU", "energy_mJ": 140.0, "macro_f1": 0.971, "marker": "o", "color": "#0072B2"},
+    {"label": "GPT-2-medium", "detail": "FP16, GPU", "energy_mJ": 641.6, "macro_f1": 0.822, "marker": "s", "color": "#009E73"},
+    {"label": "Qwen2.5-1.5B", "detail": "INT8, GPU", "energy_mJ": 1374.1, "macro_f1": 0.919, "marker": "^", "color": "#D55E00"}
+  ],
+  "energy_ratio_note": "RF uses ~9.8x less energy per inference than the INT8 LLM (140 vs 1374 mJ) while scoring higher macro-F1"
+}

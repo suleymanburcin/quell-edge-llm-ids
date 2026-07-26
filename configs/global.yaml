@@ -1,0 +1,41 @@
+# QUELL global config - read by all scripts (reproducibility, locked decision #4)
+seed: 42
+paths:
+  data_raw: data/raw
+  data_processed: data/processed
+  splits: splits
+  results: results
+  models: models
+
+split:
+  strategy: temporal      # session-aware / temporal - NOT random (locked decision #1)
+  train: 0.6
+  val: 0.2
+  test: 0.2
+  # each dataset is processed separately because the feature spaces differ (locked decision #6)
+
+preprocessing:
+  fit_on: train_only       # encoding/scaling fit on train only (locked decision #3)
+  imbalance: smote_train_only   # if used, on train only
+  scaler: standard
+
+metrics:
+  - accuracy
+  - macro_f1
+  - per_class_f1
+  - latency_ms
+  - throughput_fps
+  - energy_j_per_inference
+  - peak_memory_mb
+  - adversarial_robust_accuracy
+
+baselines:
+  - xgboost
+  - random_forest
+
+llm:
+  candidates:            # chosen for the Jetson Orin Nano ~8 GB memory budget
+    - gpt2                # 355M
+    - meta-llama/Llama-3.2-1B
+  quant: [fp16, int8]
+  finetune: qlora

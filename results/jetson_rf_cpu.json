@@ -1,0 +1,20 @@
+{
+  "device": "jetson_orin_nano_super",
+  "engine": "scikit-learn RandomForest (CPU, 6 cores)",
+  "power_mode": "MAXN_SUPER (nvpmodel -m 2) + jetson_clocks",
+  "config": {"model": "RandomForest_300", "features": 46, "classes": 15, "n_estimators": 300,
+             "note": "representative shape via make_classification; RF cost is dominated by trees+classes, weakly by features -> order of magnitude is valid."},
+  "batch1_latency_ms": 20.8,
+  "batch1_energy_per_inf_mj": 140.0,
+  "batch1_note": "batch=1 sklearn predict is inflated by per-call Python overhead; the real compute is amortized (~0.057 ms).",
+  "batch_throughput_fps": 17604,
+  "batch_amortized_ms_per_sample": 0.057,
+  "avg_power_w": 6.73,
+  "comparison_vs_llm_int8_final": {
+    "llm_int8_latency_ms": 197.2, "llm_int8_energy_mj": 1374.1,
+    "single_flow_latency": "LLM ~9.5x slower (197 vs 20.8 ms)",
+    "single_flow_energy": "LLM ~9.8x more energy (1374 vs 140 mJ)",
+    "throughput": "RF ~3500x faster (17604 vs ~5 fps)",
+    "amortized_energy": "LLM ~3600x more energy (1374 vs ~0.38 mJ)"
+  }
+}
