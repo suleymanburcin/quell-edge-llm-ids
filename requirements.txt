@@ -1,0 +1,14 @@
+# Training / evaluation host (not the Jetson; the Jetson uses the JetPack PyTorch wheel).
+numpy
+pandas
+scikit-learn
+xgboost
+pyyaml
+matplotlib
+# LLM fine-tuning and quantization
+torch
+transformers
+datasets
+peft
+bitsandbytes
+accelerate
