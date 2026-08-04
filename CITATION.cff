@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper (preferred) or the software archive below."
+title: "QUELL: An On-Device Benchmark of Quantized Edge LLMs versus Classical Machine Learning for IoT Intrusion Detection"
+type: software
+authors:
+  - given-names: "Süleyman Burçin"
+    family-names: "Şüyun"
+    orcid: "https://orcid.org/0000-0003-2808-1861"
+    affiliation: "Digital Transformation Office, Rectorate, Sinop University, Sinop, Türkiye"
+  - given-names: "Fatih"
+    family-names: "Aktürk"
+    orcid: "https://orcid.org/0009-0009-5547-5461"
+    affiliation: "Department of Computer Engineering, Faculty of Engineering and Architecture, Sinop University, Sinop, Türkiye"
+license: MIT
+repository-code: "https://github.com/suleymanburcin/quell-edge-llm-ids"
+url: "https://github.com/suleymanburcin/quell-edge-llm-ids"
+version: "1.0.0"
+date-released: "2026-08-04"   # set to your actual GitHub release / Zenodo archive date
+# doi: "10.5281/zenodo.XXXXXXXX"   # uncomment and fill after minting the Zenodo DOI
+keywords:
+  - "intrusion detection"
+  - "large language models"
+  - "edge computing"
+  - "quantization"
+  - "IoT security"
+  - "adversarial robustness"
+# On acceptance, fill journal/volume/doi so citation managers cite the article:
+preferred-citation:
+  type: article
+  title: "QUELL: An On-Device Benchmark of Quantized Edge LLMs versus Classical Machine Learning for IoT Intrusion Detection"
+  authors:
+    - given-names: "Süleyman Burçin"
+      family-names: "Şüyun"
+      orcid: "https://orcid.org/0000-0003-2808-1861"
+    - given-names: "Fatih"
+      family-names: "Aktürk"
+      orcid: "https://orcid.org/0009-0009-5547-5461"
+  journal: "Computers & Security"
+  year: 2026
