@@ -32,7 +32,7 @@ def thousands(x, nd=0):
 def write(name, title, rows):
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(OUT, name), "w", newline="", encoding="utf-8") as fh:
-        csv.writer(fh).writerows(rows)
+        csv.writer(fh, lineterminator="\n").writerows(rows)
     print(f"\n{title}  ->  results/v4/tables/{name}")
     for r in rows:
         print("  " + " | ".join(r))
