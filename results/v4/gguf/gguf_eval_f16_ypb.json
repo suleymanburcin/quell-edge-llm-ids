@@ -1,0 +1,38 @@
+{
+  "tag": "f16",
+  "device": "ypb",
+  "n": 300,
+  "dataset": "edge_iiotset",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "seed": 42,
+  "max_len": 2048,
+  "metrics": {
+    "acc": 0.9633,
+    "macro_f1_all": 0.963,
+    "macro_f1_present": 0.963,
+    "n_classes_all": 15,
+    "n_classes_present": 15
+  },
+  "hf_fp16_on_same_rows": {
+    "acc": 0.9633,
+    "macro_f1_all": 0.963,
+    "macro_f1_present": 0.963,
+    "n_classes_all": 15,
+    "n_classes_present": 15
+  },
+  "agreement_with_hf_fp16": 1.0,
+  "latency_ms": {
+    "mean": 45164.6,
+    "p50": 40972.1,
+    "p95": 66266.8
+  },
+  "prompt_tokens": {
+    "mean": 649.0,
+    "p50": 502.0,
+    "p95": 1361.1,
+    "max": 2048
+  },
+  "wall_s": 13549.4,
+  "engine": "llama.cpp llama-server, --pooling last, batch 1",
+  "llama_cpp_commit": "4413a192410fad1f054e9216114087a3e01527a0"
+}

@@ -1,0 +1,32 @@
+{
+  "tag": "q4_k_m",
+  "device": "jetson",
+  "n": 300,
+  "dataset": "edge_iiotset",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "seed": 42,
+  "max_len": 427,
+  "cost_only_ids_file": "/home/bluefin/jetson_bundle/lengths/ciciot2023_ids.jsonl",
+  "endpoint": "embedding",
+  "latency_ms": {
+    "mean": 278.8,
+    "p50": 277.3,
+    "p95": 283.0
+  },
+  "prompt_tokens": {
+    "mean": 354.6,
+    "p50": 350.0,
+    "p95": 381.0,
+    "max": 393
+  },
+  "wall_s": 83.7,
+  "engine": "llama.cpp llama-server, --pooling last, batch 1",
+  "power": {
+    "mean_w": 16.014,
+    "n_samples": 797,
+    "ram_peak_mb": 5338,
+    "ram_min_mb": 2990
+  },
+  "energy_mj_per_inference": 4465.2,
+  "llama_cpp_commit": "4413a192410fad1f054e9216114087a3e01527a0"
+}

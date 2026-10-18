@@ -1,0 +1,24 @@
+{
+  "edge_iiotset": {
+    "Qwen/Qwen2.5-1.5B": {
+      "fp16": {
+        "acc": 0.9588,
+        "macro_f1": 0.9535
+      },
+      "int8": {
+        "acc": 0.9628,
+        "macro_f1": 0.9568
+      }
+    },
+    "config": {
+      "max_len": 2048,
+      "trunc_rate_pct": 2.3,
+      "token_mean": 672.2,
+      "token_p99": 3043,
+      "train_cap": 2000,
+      "epochs": 2,
+      "eval_n": 31567,
+      "note": "full-context re-run (truncation fix)"
+    }
+  }
+}

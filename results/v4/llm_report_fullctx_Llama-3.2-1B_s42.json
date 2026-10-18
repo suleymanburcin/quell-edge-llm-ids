@@ -1,0 +1,52 @@
+{
+  "ciciot2023": {
+    "unsloth/Llama-3.2-1B": {
+      "acc": 0.9899,
+      "macro_f1": 0.8276,
+      "weighted_f1": 0.9903,
+      "eval_scope": "stratified subset (60,000)",
+      "max_len": 346,
+      "train_cap": 2000,
+      "epochs": 2,
+      "n_train": 47297,
+      "n_eval": 60000,
+      "note": "full-context re-run (truncation fix)",
+      "per_class_f1": {
+        "Backdoor_Malware": 0.3333,
+        "BenignTraffic": 0.892,
+        "BrowserHijacking": 0.5455,
+        "CommandInjection": 0.8,
+        "DDoS-ACK_Fragmentation": 0.9919,
+        "DDoS-HTTP_Flood": 0.9024,
+        "DDoS-ICMP_Flood": 0.9996,
+        "DDoS-ICMP_Fragmentation": 0.9966,
+        "DDoS-PSHACK_Flood": 0.9994,
+        "DDoS-RSTFINFlood": 0.9995,
+        "DDoS-SYN_Flood": 0.9989,
+        "DDoS-SlowLoris": 0.9355,
+        "DDoS-SynonymousIP_Flood": 0.9988,
+        "DDoS-TCP_Flood": 0.9986,
+        "DDoS-UDP_Flood": 0.9984,
+        "DDoS-UDP_Fragmentation": 0.9892,
+        "DNS_Spoofing": 0.6481,
+        "DictionaryBruteForce": 0.6923,
+        "DoS-HTTP_Flood": 0.8774,
+        "DoS-SYN_Flood": 0.9973,
+        "DoS-TCP_Flood": 0.9971,
+        "DoS-UDP_Flood": 0.998,
+        "MITM-ArpSpoofing": 0.8108,
+        "Mirai-greeth_flood": 0.9984,
+        "Mirai-greip_flood": 1.0,
+        "Mirai-udpplain": 0.994,
+        "Recon-HostDiscovery": 0.7159,
+        "Recon-OSScan": 0.4494,
+        "Recon-PingSweep": 1.0,
+        "Recon-PortScan": 0.6667,
+        "SqlInjection": 0.6,
+        "Uploading_Attack": 0.0,
+        "VulnerabilityScan": 0.9787,
+        "XSS": 0.3333
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+Dataset,Records / features / classes,Benign share,Split strategy
+Edge-IIoTset,"157,800 / 45 / 15",Normal 15.4%,per-class temporal
+CICIoT2023,"1,506,018 / 45 / 34",BenignTraffic 2.3%,stratified + exact dedup
+N-BaIoT,"1,500,000 / 115 / 11",benign 7.9%,session-grouped (source file)

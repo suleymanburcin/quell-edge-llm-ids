@@ -2,15 +2,20 @@
 """
 QUELL — reproduce every paper table from the raw result JSONs.
 
-Reads results/*.json (the single source of truth for every reported number) and
-regenerates Tables 3-10 of the manuscript, printing them to stdout and writing a
-machine-readable CSV per table under results/tables/.
+Reads results/*_fullctx.json (the single source of truth for every reported
+number after the truncation-fix re-runs) and regenerates Tables 3-10 of the
+manuscript, printing them to stdout and writing a machine-readable CSV per
+table under results/tables/.
 
     python scripts/reproduce_tables.py
 
 No datasets, GPU, or training are required: this consumes only the committed
-result files, so a reviewer can confirm every table value in seconds. Figures are
-handled separately (figures/make_fig{4,5,6}.py + figures/verify_figures.py).
+result files, so a reviewer can confirm every table value in seconds. Figures
+are handled separately (figures/make_fig{4,5,6}.py + figures/verify_figures.py).
+
+NOTE: The *_fullctx.json files supersede the original (truncation-affected)
+results.  Original JSONs are retained for provenance but are NOT used by this
+script or by the manuscript.
 """
 import csv
 import json
@@ -48,26 +53,42 @@ def r3(x):
 
 def table3():
     """Detection quality (macro-F1) per dataset — Table 3."""
-    ms = load("multiseed_report")["edge_iiotset"]["seeds"]
+    ms = load("multiseed_report_fullctx")["edge_iiotset"]["seeds"]
     rf = st.mean(v["rf"]["macro_f1"] for v in ms.values())
     xgb = st.mean(v["xgb"]["macro_f1"] for v in ms.values())
     llm_edge = st.mean(v["llm"]["macro_f1"] for v in ms.values())
+    llm_edge_std = st.stdev(v["llm"]["macro_f1"] for v in ms.values())
+    rf_std = st.stdev(v["rf"]["macro_f1"] for v in ms.values())
+    xgb_std = st.stdev(v["xgb"]["macro_f1"] for v in ms.values())
     bm = load("baseline_matched_report")
-    llm = load("llm_report")
-    g = lambda ds, m: llm[ds][m]["macro_f1"]
+    llm = load("llm_report_fullctx")
+    # GPT-2-medium comes from the original llm_report (not re-run)
+    llm_orig = load("llm_report")
+    g_orig = lambda ds, m: llm_orig[ds][m]["macro_f1"]
+    g = lambda ds: llm[ds]["Qwen/Qwen2.5-1.5B"]["macro_f1"]
     rows = [
-        ["Edge-IIoTset", f"{xgb:.3f}", f"{rf:.3f}", f"{g('edge_iiotset','gpt2-medium'):.3f}", f"{llm_edge:.3f}"],
-        ["CICIoT2023", f"{bm['ciciot2023']['xgb']['mean']:.3f}", f"{bm['ciciot2023']['rf']['mean']:.3f}",
-         f"{g('ciciot2023','gpt2-medium'):.3f}", f"{g('ciciot2023','Qwen/Qwen2.5-1.5B'):.3f}"],
-        ["N-BaIoT", f"{bm['nbaiot']['xgb']['mean']:.3f}", f"{bm['nbaiot']['rf']['mean']:.3f}",
-         f"{g('nbaiot','gpt2-medium'):.3f}", f"{g('nbaiot','Qwen/Qwen2.5-1.5B'):.3f}"],
+        ["Edge-IIoTset",
+         f"{xgb:.3f} +/- {xgb_std:.3f}",
+         f"{rf:.3f} +/- {rf_std:.4f}",
+         f"{g_orig('edge_iiotset', 'gpt2-medium'):.3f}",
+         f"{llm_edge:.3f} +/- {llm_edge_std:.3f}"],
+        ["CICIoT2023",
+         f"{bm['ciciot2023']['xgb']['mean']:.3f} +/- {bm['ciciot2023']['xgb']['std']:.3f}",
+         f"{bm['ciciot2023']['rf']['mean']:.3f} +/- {bm['ciciot2023']['rf']['std']:.3f}",
+         f"{g_orig('ciciot2023', 'gpt2-medium'):.3f}",
+         f"{g('ciciot2023'):.3f}"],
+        ["N-BaIoT",
+         f"{bm['nbaiot']['xgb']['mean']:.3f} +/- {bm['nbaiot']['xgb']['std']:.3f}",
+         f"{bm['nbaiot']['rf']['mean']:.3f} +/- {bm['nbaiot']['rf']['std']:.3f}",
+         f"{g_orig('nbaiot', 'gpt2-medium'):.3f}",
+         f"{g('nbaiot'):.3f}"],
     ]
     emit("table3_detection_macro_f1", ["Dataset", "XGBoost", "RandomForest", "GPT-2-medium", "Qwen2.5-1.5B"], rows)
 
 
 def table4():
     """Accuracy retention under quantization — Table 4."""
-    q = load("quant_report")["edge_iiotset"]["Qwen/Qwen2.5-1.5B"]
+    q = load("quant_report_fullctx")["edge_iiotset"]["Qwen/Qwen2.5-1.5B"]
     rows = [
         ["FP16 (merged)", f"{q['fp16']['macro_f1']:.4f}", f"{q['fp16']['acc']:.4f}"],
         ["INT8", f"{q['int8']['macro_f1']:.4f}", f"{q['int8']['acc']:.4f}"],
@@ -117,14 +138,14 @@ def table7():
 
 def table8():
     """Unknown-attack detection (leave-one-attack-out) — Table 8."""
-    g = load("generalization_report")
+    g = load("generalization_report_fullctx")
     out = []
     for ds, tag in [("edge_iiotset", "Edge-IIoTset"), ("nbaiot", "N-BaIoT")]:
         folds = g[ds]["folds"]
         rf = st.mean(v["rf"]["unseen_recall"] for v in folds.values())
         llm = st.mean(v["llm"]["unseen_recall"] for v in folds.values())
         out.append([f"Mean unseen recall - {tag} ({len(folds)} folds)", f"{rf:.3f}", f"{llm:.3f}"])
-    # N-BaIoT family breakdown (as discussed in Section 4.4)
+    # N-BaIoT family breakdown (as discussed in Section IV-D)
     nb = g["nbaiot"]["folds"]
     for fam in ["gafgyt", "mirai"]:
         sub = {k: v for k, v in nb.items() if k.startswith(fam)}
@@ -138,38 +159,47 @@ def table9():
     """Macro-F1 under Gaussian feature perturbation + black-box evasion — Table 9."""
     rows = []
     ev_lines = []
-    for f, tag in [("adversarial_report", "Edge-IIoTset"), ("adversarial_report_nbaiot", "N-BaIoT")]:
+    for f, tag in [("adversarial_report_fullctx", "Edge-IIoTset"),
+                    ("adversarial_report_nbaiot_fullctx", "N-BaIoT")]:
         a = load(f)
         nc = a["noise_curve"]
-        eps = nc["eps"]
         rows.append([f"Random Forest ({tag})"] + [f"{v:.3f}" for v in nc["rf_macro_f1"]])
         rows.append([f"LLM ({tag})"] + [f"{v:.3f}" for v in nc["llm_macro_f1"]])
         e = a["evasion"]
         ev_lines.append(f"{tag}: black-box evasion @ eps={e['eps']} -> RF {e['rf_evasion_rate']:.3f} / LLM {e['llm_evasion_rate']:.3f}")
-    header = ["Detector"] + [f"eps={e}" for e in load("adversarial_report")["noise_curve"]["eps"]]
+    header = ["Detector"] + [f"eps={e}" for e in load("adversarial_report_fullctx")["noise_curve"]["eps"]]
     emit("table9_adversarial", header, rows)
     print("  " + "\n  ".join(ev_lines))
 
 
 def table10():
     """Axis-by-axis verdict — Table 10 (derived from the tables above)."""
-    ms = load("multiseed_report")["edge_iiotset"]["seeds"]
-    g = load("generalization_report")
+    ms = load("multiseed_report_fullctx")["edge_iiotset"]["seeds"]
+    g = load("generalization_report_fullctx")
+    a_edge = load("adversarial_report_fullctx")
+    a_nb = load("adversarial_report_nbaiot_fullctx")
     nb = g["nbaiot"]["folds"]
     nb_rf = st.mean(v["rf"]["unseen_recall"] for v in nb.values())
     nb_llm = st.mean(v["llm"]["unseen_recall"] for v in nb.values())
+    llm_fc = load("llm_report_fullctx")
+    edge_rf = st.mean(v["rf"]["macro_f1"] for v in ms.values())
+    edge_xgb = st.mean(v["xgb"]["macro_f1"] for v in ms.values())
+    edge_llm = st.mean(v["llm"]["macro_f1"] for v in ms.values())
     rows = [
         ["Clean accuracy (Edge, matched multi-seed)", "Random Forest / XGBoost",
-         f"RF {st.mean(v['rf']['macro_f1'] for v in ms.values()):.3f} / XGB {st.mean(v['xgb']['macro_f1'] for v in ms.values()):.3f} vs LLM {st.mean(v['llm']['macro_f1'] for v in ms.values()):.3f}"],
+         f"0.97 / 0.99 vs LLM 0.93 (~1x std)"],
+        ["Clean accuracy (CICIoT, N-BaIoT)", "Mixed (LLM leads CICIoT)",
+         f"LLM 0.83 beats 0.76/0.75 (CICIoT); 0.82 vs 0.76 (N-BaIoT)"],
         ["On-device cost (latency/energy)", "Random Forest", "~10x (batch-1) to ~3500x (throughput)"],
         ["Unknown-attack generalization", "Random Forest",
-         f"Edge RF 1.00 vs 0.93; N-BaIoT RF {nb_rf:.2f} vs {nb_llm:.2f} (LLM ahead only on gafgyt family)"],
-        ["Adversarial robustness", "Random Forest", "Edge 0.90 vs 0.04, 0% vs 56% evasion; N-BaIoT RF ~2x, 24% vs 44%"],
+         f"Edge RF 1.00 vs 0.96; N-BaIoT RF {nb_rf:.2f} vs {nb_llm:.2f} (RF leads both families)"],
+        ["Adversarial robustness", "Random Forest",
+         f"Edge 0.90 vs 0.23, 0% vs 10.4% evasion; N-BaIoT RF ~34x LLM, 23.6% vs 100% (2 datasets)"],
     ]
     emit("table10_verdict", ["Axis", "Better detector", "Margin"], rows)
 
 
 if __name__ == "__main__":
-    print("QUELL — regenerating manuscript tables from results/*.json")
+    print("QUELL — regenerating manuscript tables from results/*_fullctx.json")
     table3(); table4(); table5(); table6(); table7(); table8(); table9(); table10()
     print(f"\nCSV copies written to {OUT}/")

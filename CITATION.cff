@@ -14,9 +14,8 @@ authors:
 license: MIT
 repository-code: "https://github.com/suleymanburcin/quell-edge-llm-ids"
 url: "https://github.com/suleymanburcin/quell-edge-llm-ids"
-version: "1.0.0"
-date-released: "2026-08-04"   # set to your actual GitHub release / Zenodo archive date
-# doi: "10.5281/zenodo.XXXXXXXX"   # uncomment and fill after minting the Zenodo DOI
+version: "4.0"
+date-released: "2026-10-17"
 keywords:
   - "intrusion detection"
   - "large language models"
@@ -24,7 +23,6 @@ keywords:
   - "quantization"
   - "IoT security"
   - "adversarial robustness"
-# On acceptance, fill journal/volume/doi so citation managers cite the article:
 preferred-citation:
   type: article
   title: "QUELL: An On-Device Benchmark of Quantized Edge LLMs versus Classical Machine Learning for IoT Intrusion Detection"
@@ -35,5 +33,5 @@ preferred-citation:
     - given-names: "Fatih"
       family-names: "Aktürk"
       orcid: "https://orcid.org/0009-0009-5547-5461"
-  journal: "Computers & Security"
+  journal: "IEEE Internet of Things Journal"
   year: 2026

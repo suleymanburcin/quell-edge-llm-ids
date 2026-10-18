@@ -1,0 +1,87 @@
+{
+  "dataset": "nbaiot",
+  "benign": "benign",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "featset": "paper",
+  "holdout": "family",
+  "config": {
+    "train_cap": 1500,
+    "epochs": 1,
+    "max_len": 1707,
+    "seed": 42,
+    "unseen_cap": 5000,
+    "rf": "200 trees, balanced",
+    "xgb": "300 trees, depth 8",
+    "note": "revision 1: re_08 protocol + XGBoost, no truncation"
+  },
+  "fold_members": {
+    "gafgyt": [
+      "gafgyt_combo",
+      "gafgyt_junk",
+      "gafgyt_scan",
+      "gafgyt_tcp",
+      "gafgyt_udp"
+    ],
+    "mirai": [
+      "mirai_ack",
+      "mirai_scan",
+      "mirai_syn",
+      "mirai_udp",
+      "mirai_udpplain"
+    ]
+  },
+  "folds": {
+    "gafgyt": {
+      "n_unseen": 5000,
+      "rf": {
+        "unseen_recall": 0.9634,
+        "benign_fpr": 0.0004,
+        "known_recall": 0.9996
+      },
+      "xgb": {
+        "unseen_recall": 0.3552,
+        "benign_fpr": 0.0,
+        "known_recall": 0.9996
+      },
+      "llm": {
+        "unseen_recall": 0.9824,
+        "benign_fpr": 0.0008,
+        "known_recall": 0.9998
+      },
+      "sec": 7684
+    },
+    "mirai": {
+      "n_unseen": 5000,
+      "rf": {
+        "unseen_recall": 0.9992,
+        "benign_fpr": 0.0004,
+        "known_recall": 0.9992
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0106,
+        "known_recall": 0.9992
+      },
+      "llm": {
+        "unseen_recall": 0.6204,
+        "benign_fpr": 0.0012,
+        "known_recall": 0.998
+      },
+      "sec": 6647
+    }
+  },
+  "summary": {
+    "rf": {
+      "mean_unseen_recall": 0.9813,
+      "min": 0.9634
+    },
+    "xgb": {
+      "mean_unseen_recall": 0.6776,
+      "min": 0.3552
+    },
+    "llm": {
+      "mean_unseen_recall": 0.8014,
+      "min": 0.6204
+    }
+  }
+}

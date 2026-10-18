@@ -1,0 +1,48 @@
+{
+  "dataset": "nbaiot",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "seed": 42,
+  "featset": "paper",
+  "benign": "benign",
+  "max_len": null,
+  "n_features": 115,
+  "note": "revision 1: same protocol as re_09/re_09b + XGBoost (classical only; LLM from earlier run)",
+  "noise_curve": {
+    "eps": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "rf_macro_f1": [
+      0.6941,
+      0.3636,
+      0.2449,
+      0.1801,
+      0.1334
+    ],
+    "xgb_macro_f1": [
+      0.6725,
+      0.3124,
+      0.2509,
+      0.2177,
+      0.1723
+    ],
+    "llm_macro_f1": [
+      NaN,
+      NaN,
+      NaN,
+      NaN,
+      NaN
+    ]
+  },
+  "evasion": {
+    "n_samples": 800,
+    "tries": 20,
+    "eps": 0.3,
+    "rf_evasion_rate": 0.2362,
+    "xgb_evasion_rate": 0.7275,
+    "llm_evasion_rate": 0.0
+  }
+}

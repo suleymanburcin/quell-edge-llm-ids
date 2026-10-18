@@ -1,14 +1,22 @@
 # Training / evaluation host (not the Jetson; the Jetson uses the JetPack PyTorch wheel).
+# Pinned: the versions recorded for the v4 runs (results/v4/PROVENANCE.md, section 7); others unpinned.
 numpy
+scipy
 pandas
-scikit-learn
-xgboost
+pyarrow
+scikit-learn==1.9.0
+xgboost==3.3.0
 pyyaml
 matplotlib
 # LLM fine-tuning and quantization
-torch
-transformers
+torch==2.11.0        # +cu128 on the GPU host
+transformers==5.14.1
 datasets
 peft
 bitsandbytes
 accelerate
+# Attacker-constrained evaluation (17) and Jetson bundle (18: random forest -> ONNX)
+adversarial-robustness-toolbox==1.20.1
+skl2onnx
+onnx
+# On the Jetson additionally: onnxruntime (CPU), and llama.cpp built from source at commit 4413a19 (see README and docs/jetson_setup_log.md)

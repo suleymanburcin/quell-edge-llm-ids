@@ -1,5 +1,6 @@
 Axis,Better detector,Margin
-"Clean accuracy (Edge, matched multi-seed)",Random Forest / XGBoost,RF 0.971 / XGB 0.987 vs LLM 0.919
+"Clean accuracy (Edge, matched multi-seed)",Random Forest / XGBoost,0.97 / 0.99 vs LLM 0.93 (~1x std)
+"Clean accuracy (CICIoT, N-BaIoT)",Mixed (LLM leads CICIoT),LLM 0.83 beats 0.76/0.75 (CICIoT); 0.82 vs 0.76 (N-BaIoT)
 On-device cost (latency/energy),Random Forest,~10x (batch-1) to ~3500x (throughput)
-Unknown-attack generalization,Random Forest,Edge RF 1.00 vs 0.93; N-BaIoT RF 0.99 vs 0.94 (LLM ahead only on gafgyt family)
-Adversarial robustness,Random Forest,"Edge 0.90 vs 0.04, 0% vs 56% evasion; N-BaIoT RF ~2x, 24% vs 44%"
+Unknown-attack generalization,Random Forest,Edge RF 1.00 vs 0.96; N-BaIoT RF 0.99 vs 0.96 (RF leads both families)
+Adversarial robustness,Random Forest,"Edge 0.90 vs 0.23, 0% vs 10.4% evasion; N-BaIoT RF ~34x LLM, 23.6% vs 100% (2 datasets)"

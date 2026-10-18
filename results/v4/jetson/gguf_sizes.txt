@@ -1,0 +1,2 @@
+-rw-r--r-- 1 bluefin bluefin  986047840 Eki 16 10:12 /home/bluefin/jetson_bundle/edge_llm/model-q4_k_m.gguf
+-rw-r--r-- 1 bluefin bluefin 1646572384 Eki 16 10:11 /home/bluefin/jetson_bundle/edge_llm/model-q8_0.gguf

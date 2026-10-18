@@ -1,0 +1,47 @@
+{
+  "tag": "q4_k_m",
+  "device": "jetson",
+  "n": 1000,
+  "dataset": "edge_iiotset",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "seed": 42,
+  "max_len": 427,
+  "cost_only_ids_file": null,
+  "endpoint": "embedding",
+  "metrics": {
+    "acc": 0.899,
+    "macro_f1_all": 0.8672,
+    "macro_f1_present": 0.8672,
+    "n_classes_all": 15,
+    "n_classes_present": 15
+  },
+  "hf_fp16_on_same_rows": {
+    "acc": 0.926,
+    "macro_f1_all": 0.9051,
+    "macro_f1_present": 0.9051,
+    "n_classes_all": 15,
+    "n_classes_present": 15
+  },
+  "agreement_with_hf_fp16": 0.942,
+  "latency_ms": {
+    "mean": 314.9,
+    "p50": 316.1,
+    "p95": 321.3
+  },
+  "prompt_tokens": {
+    "mean": 397.8,
+    "p50": 398.0,
+    "p95": 409.0,
+    "max": 427
+  },
+  "wall_s": 315.0,
+  "engine": "llama.cpp llama-server, --pooling last, batch 1",
+  "power": {
+    "mean_w": 16.156,
+    "n_samples": 3002,
+    "ram_peak_mb": 4132,
+    "ram_min_mb": 2728
+  },
+  "energy_mj_per_inference": 5087.5,
+  "llama_cpp_commit": "4413a192410fad1f054e9216114087a3e01527a0"
+}

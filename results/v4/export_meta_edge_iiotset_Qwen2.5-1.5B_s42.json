@@ -1,0 +1,48 @@
+{
+  "classes": [
+    "Backdoor",
+    "DDoS_HTTP",
+    "DDoS_ICMP",
+    "DDoS_TCP",
+    "DDoS_UDP",
+    "Fingerprinting",
+    "MITM",
+    "Normal",
+    "Password",
+    "Port_Scanning",
+    "Ransomware",
+    "SQL_injection",
+    "Uploading",
+    "Vulnerability_scanner",
+    "XSS"
+  ],
+  "classes_all": [
+    "Backdoor",
+    "DDoS_HTTP",
+    "DDoS_ICMP",
+    "DDoS_TCP",
+    "DDoS_UDP",
+    "Fingerprinting",
+    "MITM",
+    "Normal",
+    "Password",
+    "Port_Scanning",
+    "Ransomware",
+    "SQL_injection",
+    "Uploading",
+    "Vulnerability_scanner",
+    "XSS"
+  ],
+  "max_len": 2048,
+  "model": "Qwen/Qwen2.5-1.5B",
+  "dataset": "edge_iiotset",
+  "seed": 42,
+  "token_len": {
+    "p50": 503.0,
+    "p95": 1585.0499999999997,
+    "p99": 3030.039999999999,
+    "max": 3408,
+    "max_len": 2048,
+    "trunc_rate": 0.012
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "edge_iiotset": {
+    "n_feat": 45,
+    "mean": 397.8,
+    "p50": 398,
+    "p95": 409,
+    "p99": 411,
+    "max": 445,
+    "max_len": 427,
+    "trunc_pct": 0.02,
+    "example": "Network traffic flow. arp.opcode=0.0, arp.hw.size=0.0, icmp.checksum=0.0, icmp.seq_le=0.0, icmp.unused=0.0, http.content_length=0.0, http.request.method=0, http.referer=0.0, http.request.version=0, http.response=0.0, http.tls_port=0.0, tcp.ack=262.0, tcp.ack_raw=658954538.0, tcp.checksum=678.0, tcp.connection.fin=0.0, tcp.connection.rst=0.0, tcp.connection.syn=0.0, tcp.connection.synack=0.0, tcp.flags=16.0, tcp.flags.ack=1.0, tcp.len=0.0, tcp.seq=304.0, udp.time_delta=0.0, dns.qry.name=0.0, dns.qry.name.len=0.0, dns.qry.qu=0.0, dns.qry.type=0.0, dns.retransmission=0.0, dns.retransmit_request=0.0, dns.retransmit_request_in=0.0, mqtt.conack.flags=0.0, mqtt.conflag.cleansess=0.0, mqtt.conflags=0.0, mqtt.hdrflags=0.0, mqtt.len=0.0, mqtt.msg_decoded_as=0.0, mqtt.msgtype=0.0, mqtt.proto_len=0.0, mqtt.protoname=0.0, mqtt.topic=0.0, mqtt.topic_len=0.0, mqtt.ver=0.0, mbtcp.len=0.0, mbtcp.trans_id=0.0, mbtcp.unit_id=0.0 . Attack type:",
+    "example_label": "Password"
+  },
+  "ciciot2023": {
+    "n_feat": 45,
+    "mean": 353.7,
+    "p50": 348,
+    "p95": 380,
+    "p99": 388,
+    "max": 414,
+    "max_len": 404,
+    "trunc_pct": 0.02,
+    "example": "Network traffic flow. flow_duration=0.2971, Header_Length=71.92, Protocol Type=6.0, Duration=64.0, Rate=1.586, Srate=1.586, Drate=0.0, fin_flag_number=0.0, syn_flag_number=1.0, rst_flag_number=0.0, psh_flag_number=0.0, ack_flag_number=0.0, ece_flag_number=0.0, cwr_flag_number=0.0, ack_count=0.0, syn_count=1.16, fin_count=0.16, urg_count=0.0, rst_count=0.16, HTTP=0.0, HTTPS=0.0, DNS=0.0, Telnet=0.0, SMTP=0.0, SSH=0.0, IRC=0.0, TCP=1.0, UDP=0.0, DHCP=0.0, ARP=0.0, ICMP=0.0, LLC=1.0, Tot sum=567.0, Min=54.0, Max=54.0, AVG=54.0, Std=0.0, Tot size=54.0, IAT=83076989.4826, Number=9.5, Magnitue=10.3923, Radius=0.0, Covariance=0.0, Variance=0.0, Weight=141.55 . Attack type:",
+    "example_label": "DDoS-SYN_Flood"
+  },
+  "nbaiot": {
+    "n_feat": 115,
+    "mean": 1509.2,
+    "p50": 1521,
+    "p95": 1652,
+    "p99": 1696,
+    "max": 1868,
+    "max_len": 1712,
+    "trunc_pct": 0.85,
+    "example": "Network traffic flow. MI_dir_L5_weight=122.5624, MI_dir_L5_mean=133.4553, MI_dir_L5_variance=31710.3289, MI_dir_L3_weight=150.3974, MI_dir_L3_mean=168.5887, MI_dir_L3_variance=43097.0801, MI_dir_L1_weight=313.375, MI_dir_L1_mean=344.8984, MI_dir_L1_variance=62959.8606, MI_dir_L0.1_weight=3365.2765, MI_dir_L0.1_mean=404.4051, MI_dir_L0.1_variance=55638.8633, MI_dir_L0.01_weight=17104.1385, MI_dir_L0.01_mean=354.5382, MI_dir_L0.01_variance=62262.9702, H_L5_weight=122.5624, H_L5_mean=133.4553, H_L5_variance=31710.3289, H_L3_weight=150.3974, H_L3_mean=168.5887, H_L3_variance=43097.0801, H_L1_weight=313.375, H_L1_mean=344.8984, H_L1_variance=62959.8606, H_L0.1_weight=3365.2765, H_L0.1_mean=404.4051, H_L0.1_variance=55638.8633, H_L0.01_weight=17104.1385, H_L0.01_mean=354.5382, H_L0.01_variance=62262.9702, HH_L5_weight=1.0, HH_L5_mean=60.0, HH_L5_std=0.0, HH_L5_magnitude=60.0, HH_L5_radius=0.0, HH_L5_covariance=0.0, HH_L5_pcc=0.0, HH_L3_weight=1.0, HH_L3_mean=60.0, HH_L3_std=0.0, HH_L3_magnitude=60.0, HH_L3_radius=0.0, HH_L3_covariance=0.0, HH_L3_pcc=0.0, HH_L1_weight=1.0, HH_L1_mean=60.0, HH_L1_std=0.0, HH_L1_magnitude=60.0, HH_L1_radius=0.0, HH_L1_covariance=0.0, HH_L1_pcc=0.0, HH_L0.1_weight=1.0, HH_L0.1_mean=60.0, HH_L0.1_std=0.0, HH_L0.1_magnitude=60.0, HH_L0.1_radius=0.0, HH_L0.1_covariance=0.0, HH_L0.1_pcc=0.0, HH_L0.01_weight=1.0, HH_L0.01_mean=60.0, HH_L0.01_std=0.0, HH_L0.01_magnitude=60.0, HH_L0.01_radius=0.0, HH_L0.01_covariance=0.0, HH_L0.01_pcc=0.0, HH_jit_L5_weight=1.0, HH_jit_L5_mean=1507658005.5315, HH_jit_L5_variance=0.0, HH_jit_L3_weight=1.0, HH_jit_L3_mean=1507658005.5315, HH_jit_L3_variance=0.0, HH_jit_L1_weight=1.0, HH_jit_L1_mean=1507658005.5315, HH_jit_L1_variance=0.0, HH_jit_L0.1_weight=1.0, HH_jit_L0.1_mean=1507658005.5315, HH_jit_L0.1_variance=0.0, HH_jit_L0.01_weight=1.0, HH_jit_L0.01_mean=1507658005.5315, HH_jit_L0.01_variance=0.0, HpHp_L5_weight=1.0, HpHp_L5_mean=60.0, HpHp_L5_std=0.0, HpHp_L5_magnitude=60.0, HpHp_L5_radius=0.0, HpHp_L5_covariance=0.0, HpHp_L5_pcc=0.0, HpHp_L3_weight=1.0, HpHp_L3_mean=60.0, HpHp_L3_std=0.0, HpHp_L3_magnitude=60.0, HpHp_L3_radius=0.0, HpHp_L3_covariance=0.0, HpHp_L3_pcc=0.0, HpHp_L1_weight=1.0, HpHp_L1_mean=60.0, HpHp_L1_std=0.0, HpHp_L1_magnitude=60.0, HpHp_L1_radius=0.0, HpHp_L1_covariance=0.0, HpHp_L1_pcc=0.0, HpHp_L0.1_weight=1.0, HpHp_L0.1_mean=60.0, HpHp_L0.1_std=0.0, HpHp_L0.1_magnitude=60.0, HpHp_L0.1_radius=0.0, HpHp_L0.1_covariance=0.0, HpHp_L0.1_pcc=0.0, HpHp_L0.01_weight=1.0, HpHp_L0.01_mean=60.0, HpHp_L0.01_std=0.0, HpHp_L0.01_magnitude=60.0, HpHp_L0.01_radius=0.0, HpHp_L0.01_covariance=0.0, HpHp_L0.01_pcc=0.0 . Attack type:",
+    "example_label": "mirai_ack"
+  }
+}

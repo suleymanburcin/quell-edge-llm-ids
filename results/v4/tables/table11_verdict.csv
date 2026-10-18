@@ -1,0 +1,9 @@
+Axis,Better detector,Evidence
+Clean accuracy (Edge-IIoTset),None,RF 0.88 / XGB 0.89 vs LLM 0.89 ± 0.02 (Llama-3.2-1B 0.90 ± 0.01); 95% CIs include 0
+"Clean accuracy (CICIoT, N-BaIoT)",Mixed,LLM 0.83 vs 0.76/0.75 (CICIoT); classical 0.82 vs 0.79 (N-BaIoT)
+Seed stability (Edge-IIoTset),Classical,s.d. 0.001/0.002 vs 0.016
+Unknown-attack generalization,None consistent,RF/XGB/LLM: Edge 1.00/1.00/1.00; CICIoT 0.87/0.85/0.86; N-BaIoT 0.98/0.68/0.80
+Random-noise sensitivity,Classical,ε = 0.1 on Edge: 0.48/0.39 vs 0.04 (0.21 format-controlled); LLM lowest on all datasets
+"Constrained evasion (HSJ, ≤1σ)",None,0% for all detectors
+Quantization,—,"within 0.002 macro-F1 of FP16, also on the device (INT8); post-training 4-bit −0.04 on the device; robustness unchanged"
+On-device cost (latency/energy),Classical,"≈110× (XGBoost) to ≈4,000× (RF, ONNX) latency; ≈235–9,000× energy"

@@ -1,0 +1,209 @@
+{
+  "edge_noid_detection": {
+    "llm_seeds": {
+      "42": 0.8746,
+      "1": 0.9066,
+      "2": 0.8947
+    },
+    "llm_mean": 0.892,
+    "llm_sd": 0.0162,
+    "rf": {
+      "mean_5seeds": 0.8836,
+      "sd_5seeds": 0.0008,
+      "sd_5seeds_population_as_stored": 0.0007,
+      "paired_diff_llm_minus": 0.0081,
+      "ci95": [
+        -0.03,
+        0.046
+      ],
+      "glass_delta": -0.51
+    },
+    "xgb": {
+      "mean_5seeds": 0.8947,
+      "sd_5seeds": 0.0018,
+      "sd_5seeds_population_as_stored": 0.0016,
+      "paired_diff_llm_minus": -0.0036,
+      "ci95": [
+        -0.043,
+        0.036
+      ],
+      "glass_delta": 0.17
+    }
+  },
+  "ciciot2023_llm_3seeds": {
+    "seeds": [
+      0.8332,
+      0.8237,
+      0.8309
+    ],
+    "mean": 0.8293,
+    "sd": 0.005
+  },
+  "nbaiot_llm_3seeds": {
+    "seeds": [
+      0.7635,
+      0.8094,
+      0.8076
+    ],
+    "mean": 0.7935,
+    "sd": 0.026,
+    "present_class": [
+      0.9331,
+      0.9892,
+      0.9871
+    ],
+    "present_mean": 0.9698,
+    "present_sd": 0.0318,
+    "classical_present_from_all_class": {
+      "rf": 0.999,
+      "xgb": 0.997
+    }
+  },
+  "generalization": {
+    "edge_iiotset": {
+      "rf": {
+        "mean_recall": 1.0,
+        "min_recall": 1.0,
+        "mean_benign_fpr": 0.0,
+        "per_fold": {
+          "Backdoor": 1.0,
+          "DDoS_HTTP": 1.0,
+          "DDoS_ICMP": 1.0,
+          "DDoS_TCP": 1.0,
+          "DDoS_UDP": 1.0,
+          "Fingerprinting": 1.0,
+          "MITM": 1.0,
+          "Password": 1.0,
+          "Port_Scanning": 1.0,
+          "Ransomware": 1.0,
+          "SQL_injection": 1.0,
+          "Uploading": 1.0,
+          "Vulnerability_scanner": 1.0,
+          "XSS": 1.0
+        }
+      },
+      "xgb": {
+        "mean_recall": 1.0,
+        "min_recall": 1.0,
+        "mean_benign_fpr": 0.0,
+        "per_fold": {
+          "Backdoor": 1.0,
+          "DDoS_HTTP": 1.0,
+          "DDoS_ICMP": 1.0,
+          "DDoS_TCP": 1.0,
+          "DDoS_UDP": 1.0,
+          "Fingerprinting": 1.0,
+          "MITM": 1.0,
+          "Password": 1.0,
+          "Port_Scanning": 1.0,
+          "Ransomware": 1.0,
+          "SQL_injection": 1.0,
+          "Uploading": 1.0,
+          "Vulnerability_scanner": 1.0,
+          "XSS": 1.0
+        }
+      },
+      "llm": {
+        "mean_recall": 0.9998,
+        "min_recall": 0.9985,
+        "mean_benign_fpr": 0.001,
+        "per_fold": {
+          "Backdoor": 1.0,
+          "DDoS_HTTP": 1.0,
+          "DDoS_ICMP": 1.0,
+          "DDoS_TCP": 0.9985,
+          "DDoS_UDP": 1.0,
+          "Fingerprinting": 1.0,
+          "MITM": 1.0,
+          "Password": 1.0,
+          "Port_Scanning": 0.999,
+          "Ransomware": 0.9995,
+          "SQL_injection": 1.0,
+          "Uploading": 1.0,
+          "Vulnerability_scanner": 1.0,
+          "XSS": 1.0
+        }
+      }
+    },
+    "ciciot2023": {
+      "rf": {
+        "mean_recall": 0.8689,
+        "min_recall": 0.4591,
+        "mean_benign_fpr": 0.1546,
+        "per_fold": {
+          "DDoS": 0.9998,
+          "DoS": 1.0,
+          "Mirai": 1.0,
+          "Recon": 0.8023,
+          "Spoofing": 0.4591,
+          "Web": 0.9401,
+          "BruteForce": 0.881
+        }
+      },
+      "xgb": {
+        "mean_recall": 0.8502,
+        "min_recall": 0.4762,
+        "mean_benign_fpr": 0.1482,
+        "per_fold": {
+          "DDoS": 1.0,
+          "DoS": 1.0,
+          "Mirai": 0.9996,
+          "Recon": 0.8759,
+          "Spoofing": 0.7196,
+          "Web": 0.8802,
+          "BruteForce": 0.4762
+        }
+      },
+      "llm": {
+        "mean_recall": 0.8628,
+        "min_recall": 0.4594,
+        "mean_benign_fpr": 0.2257,
+        "per_fold": {
+          "DDoS": 1.0,
+          "DoS": 1.0,
+          "Mirai": 1.0,
+          "Recon": 0.8072,
+          "Spoofing": 0.4594,
+          "Web": 0.9162,
+          "BruteForce": 0.8571
+        }
+      }
+    },
+    "nbaiot": {
+      "rf": {
+        "mean_recall": 0.9813,
+        "min_recall": 0.9634,
+        "mean_benign_fpr": 0.0004,
+        "per_fold": {
+          "gafgyt": 0.9634,
+          "mirai": 0.9992
+        }
+      },
+      "xgb": {
+        "mean_recall": 0.6776,
+        "min_recall": 0.3552,
+        "mean_benign_fpr": 0.0053,
+        "per_fold": {
+          "gafgyt": 0.3552,
+          "mirai": 1.0
+        }
+      },
+      "llm": {
+        "mean_recall": 0.8014,
+        "min_recall": 0.6204,
+        "mean_benign_fpr": 0.001,
+        "per_fold": {
+          "gafgyt": 0.9824,
+          "mirai": 0.6204
+        }
+      }
+    }
+  },
+  "quantization_noid": {
+    "fp16": 0.8916,
+    "int8": 0.8901,
+    "nf4": 0.8914,
+    "delta_int8": -0.0015,
+    "delta_nf4": -0.0002
+  }
+}

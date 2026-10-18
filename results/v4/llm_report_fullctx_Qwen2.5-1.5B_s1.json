@@ -1,0 +1,79 @@
+{
+  "ciciot2023": {
+    "Qwen/Qwen2.5-1.5B": {
+      "acc": 0.9919,
+      "macro_f1": 0.8237,
+      "weighted_f1": 0.9921,
+      "eval_scope": "stratified subset (60,000)",
+      "max_len": 405,
+      "train_cap": 2000,
+      "epochs": 2,
+      "n_train": 47297,
+      "n_eval": 60000,
+      "note": "full-context re-run (truncation fix)",
+      "per_class_f1": {
+        "Backdoor_Malware": 0.3333,
+        "BenignTraffic": 0.9142,
+        "BrowserHijacking": 0.4,
+        "CommandInjection": 0.8333,
+        "DDoS-ACK_Fragmentation": 0.9827,
+        "DDoS-HTTP_Flood": 0.9136,
+        "DDoS-ICMP_Flood": 0.9994,
+        "DDoS-ICMP_Fragmentation": 0.9966,
+        "DDoS-PSHACK_Flood": 0.9995,
+        "DDoS-RSTFINFlood": 0.9994,
+        "DDoS-SYN_Flood": 0.9981,
+        "DDoS-SlowLoris": 0.9667,
+        "DDoS-SynonymousIP_Flood": 0.9987,
+        "DDoS-TCP_Flood": 0.9989,
+        "DDoS-UDP_Flood": 0.9986,
+        "DDoS-UDP_Fragmentation": 0.9905,
+        "DNS_Spoofing": 0.7109,
+        "DictionaryBruteForce": 0.6923,
+        "DoS-HTTP_Flood": 0.9688,
+        "DoS-SYN_Flood": 0.9987,
+        "DoS-TCP_Flood": 0.9985,
+        "DoS-UDP_Flood": 0.9987,
+        "MITM-ArpSpoofing": 0.8392,
+        "Mirai-greeth_flood": 0.996,
+        "Mirai-greip_flood": 0.9959,
+        "Mirai-udpplain": 0.9991,
+        "Recon-HostDiscovery": 0.8435,
+        "Recon-OSScan": 0.6048,
+        "Recon-PingSweep": 0.5,
+        "Recon-PortScan": 0.6348,
+        "SqlInjection": 0.6,
+        "Uploading_Attack": 0.0,
+        "VulnerabilityScan": 0.9677,
+        "XSS": 0.3333
+      }
+    }
+  },
+  "nbaiot": {
+    "Qwen/Qwen2.5-1.5B": {
+      "acc": 0.9574,
+      "macro_f1": 0.8094,
+      "weighted_f1": 0.9754,
+      "eval_scope": "stratified subset (60,001)",
+      "max_len": 1707,
+      "train_cap": 2000,
+      "epochs": 2,
+      "n_train": 22000,
+      "n_eval": 60001,
+      "note": "full-context re-run (truncation fix)",
+      "per_class_f1": {
+        "benign": 0.9901,
+        "gafgyt_combo": 0.9948,
+        "gafgyt_junk": 0.9935,
+        "gafgyt_scan": 0.9961,
+        "gafgyt_tcp": 0.9991,
+        "gafgyt_udp": 0.9989,
+        "mirai_ack": 0.0,
+        "mirai_scan": 0.9905,
+        "mirai_syn": 0.9402,
+        "mirai_udp": 0.0,
+        "mirai_udpplain": 0.9998
+      }
+    }
+  }
+}

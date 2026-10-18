@@ -1,0 +1,33 @@
+{
+  "edge_iiotset": {
+    "unsloth/Llama-3.2-1B": {
+      "acc": 0.9255,
+      "macro_f1": 0.8995,
+      "weighted_f1": 0.9255,
+      "eval_scope": "tam test",
+      "max_len": 411,
+      "train_cap": 2000,
+      "epochs": 2,
+      "n_train": 27328,
+      "n_eval": 31567,
+      "note": "full-context re-run (truncation fix)",
+      "per_class_f1": {
+        "Backdoor": 0.9242,
+        "DDoS_HTTP": 0.8884,
+        "DDoS_ICMP": 0.9998,
+        "DDoS_TCP": 1.0,
+        "DDoS_UDP": 0.9543,
+        "Fingerprinting": 0.5738,
+        "MITM": 1.0,
+        "Normal": 1.0,
+        "Password": 0.8329,
+        "Port_Scanning": 0.9109,
+        "Ransomware": 0.8569,
+        "SQL_injection": 0.8378,
+        "Uploading": 0.8573,
+        "Vulnerability_scanner": 0.935,
+        "XSS": 0.9207
+      }
+    }
+  }
+}

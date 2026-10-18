@@ -1,0 +1,168 @@
+{
+  "conditions": {
+    "device": "Jetson Orin Nano Engineering Reference Developer Kit Super (8 GB)",
+    "power_mode": "MAXN_SUPER (nvpmodel 2), jetson_clocks",
+    "desktop": "stopped (multi-user.target)",
+    "llama_cpp": "4413a192410fad1f054e9216114087a3e01527a0",
+    "energy": "board input power (VDD_IN, tegrastats 100 ms) x mean batch-1 latency; includes idle board power"
+  },
+  "llm": {
+    "q8_0": {
+      "macro_f1": 0.9066,
+      "hf_fp16_same_rows": 0.9051,
+      "agreement_with_hf_fp16": 0.991,
+      "n": 1000,
+      "edge_iiotset": {
+        "latency_ms": {
+          "mean": 278.1,
+          "p50": 278.7,
+          "p95": 282.8
+        },
+        "tokens_mean": 397.8,
+        "power_w": 16.914,
+        "energy_mj": 4703.0,
+        "ram_peak_mb": 3954,
+        "n": 300
+      },
+      "ciciot2023": {
+        "latency_ms": {
+          "mean": 247.9,
+          "p50": 246.4,
+          "p95": 253.2
+        },
+        "tokens_mean": 354.6,
+        "power_w": 16.932,
+        "energy_mj": 4196.7,
+        "ram_peak_mb": 6053,
+        "n": 300
+      },
+      "nbaiot_chunked_server_side": {
+        "n": 179,
+        "prefill_ms_mean": 784.2,
+        "prefill_ms_median": 778.8,
+        "tokens_mean": 1462.8,
+        "note": "server-side prompt evaluation (no HTTP overhead), 512-token chunks; run interrupted by a board reboot"
+      }
+    },
+    "q4_k_m": {
+      "macro_f1": 0.8672,
+      "hf_fp16_same_rows": 0.9051,
+      "agreement_with_hf_fp16": 0.942,
+      "n": 1000,
+      "edge_iiotset": {
+        "latency_ms": {
+          "mean": 315.0,
+          "p50": 316.4,
+          "p95": 320.4
+        },
+        "tokens_mean": 397.8,
+        "power_w": 16.092,
+        "energy_mj": 5069.7,
+        "ram_peak_mb": 3249,
+        "n": 300
+      },
+      "ciciot2023": {
+        "latency_ms": {
+          "mean": 278.8,
+          "p50": 277.3,
+          "p95": 283.0
+        },
+        "tokens_mean": 354.6,
+        "power_w": 16.014,
+        "energy_mj": 4465.2,
+        "ram_peak_mb": 5338,
+        "n": 300
+      }
+    }
+  },
+  "classic_versions": {
+    "sklearn": "1.7.2",
+    "xgboost": "3.2.0",
+    "onnxruntime": "1.23.2",
+    "threads": 6
+  },
+  "classic": {
+    "ciciot2023": {
+      "rf_sklearn": {
+        "macro_f1": 0.7736,
+        "batch1_ms": 53.786,
+        "batched_ms_per_sample": 0.0405,
+        "throughput_per_s": 24707.7,
+        "energy_mj_batch1": 391.456,
+        "energy_mj_batched": 0.2908
+      },
+      "xgb_native": {
+        "macro_f1": 0.777,
+        "batch1_ms": 5.036,
+        "batched_ms_per_sample": 0.0262,
+        "throughput_per_s": 38208.1,
+        "energy_mj_batch1": 40.246,
+        "energy_mj_batched": 0.201
+      },
+      "rf_onnxruntime": {
+        "macro_f1": 0.7737,
+        "batch1_ms": 0.091,
+        "batched_ms_per_sample": 0.0274,
+        "throughput_per_s": 36439.2,
+        "energy_mj_batch1": 0.659,
+        "energy_mj_batched": 0.2007
+      }
+    },
+    "edge_iiotset": {
+      "rf_sklearn": {
+        "macro_f1": 0.824,
+        "batch1_ms": 54.248,
+        "batched_ms_per_sample": 0.0324,
+        "throughput_per_s": 30854.3,
+        "energy_mj_batch1": 393.512,
+        "energy_mj_batched": 0.2278
+      },
+      "xgb_native": {
+        "macro_f1": 0.8436,
+        "batch1_ms": 2.529,
+        "batched_ms_per_sample": 0.0157,
+        "throughput_per_s": 63568.9,
+        "energy_mj_batch1": 19.95,
+        "energy_mj_batched": 0.1205
+      },
+      "rf_onnxruntime": {
+        "macro_f1": 0.824,
+        "batch1_ms": 0.07,
+        "batched_ms_per_sample": 0.0111,
+        "throughput_per_s": 89872.3,
+        "energy_mj_batch1": 0.521,
+        "energy_mj_batched": 0.0794
+      }
+    },
+    "nbaiot": {
+      "rf_sklearn": {
+        "macro_f1": 0.6934,
+        "batch1_ms": 47.988,
+        "batched_ms_per_sample": 0.0288,
+        "throughput_per_s": 34741.8,
+        "energy_mj_batch1": 350.791,
+        "energy_mj_batched": 0.2021
+      },
+      "xgb_native": {
+        "macro_f1": 0.6672,
+        "batch1_ms": 1.292,
+        "batched_ms_per_sample": 0.0048,
+        "throughput_per_s": 207964.3,
+        "energy_mj_batch1": 9.631,
+        "energy_mj_batched": 0.0362
+      },
+      "rf_onnxruntime": {
+        "macro_f1": 0.6934,
+        "batch1_ms": 0.043,
+        "batched_ms_per_sample": 0.004,
+        "throughput_per_s": 249193.2,
+        "energy_mj_batch1": 0.316,
+        "energy_mj_batched": 0.0281
+      }
+    }
+  },
+  "thermal_watch_14_40_to_15_00": {
+    "gpu_c_max": 64.437,
+    "vdd_in_mw_max": 17354
+  }
+}

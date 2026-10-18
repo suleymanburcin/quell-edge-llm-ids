@@ -1,0 +1,162 @@
+{
+  "dataset": "edge_iiotset",
+  "protocol": "balanced 2000/class train, full test partition, RF(300, balanced) / XGB(300, depth 8)",
+  "seeds": [
+    42,
+    1,
+    2,
+    3,
+    4
+  ],
+  "removed": {
+    "ferrag": [
+      "tcp.srcport",
+      "tcp.dstport",
+      "udp.port",
+      "tcp.options",
+      "tcp.payload",
+      "http.file_data",
+      "http.request.full_uri",
+      "http.request.uri.query",
+      "icmp.transmit_timestamp",
+      "mqtt.msg"
+    ],
+    "noid": [
+      "tcp.srcport",
+      "tcp.dstport",
+      "udp.port",
+      "tcp.options",
+      "tcp.payload",
+      "http.file_data",
+      "http.request.full_uri",
+      "http.request.uri.query",
+      "icmp.transmit_timestamp",
+      "mqtt.msg",
+      "udp.stream"
+    ],
+    "strict": [
+      "tcp.srcport",
+      "tcp.dstport",
+      "udp.port",
+      "tcp.options",
+      "tcp.payload",
+      "http.file_data",
+      "http.request.full_uri",
+      "http.request.uri.query",
+      "icmp.transmit_timestamp",
+      "mqtt.msg",
+      "tcp.ack_raw",
+      "tcp.seq",
+      "tcp.ack",
+      "tcp.checksum"
+    ]
+  },
+  "n_features": {
+    "base": 56,
+    "ferrag": 46,
+    "noid": 45,
+    "strict": 42
+  },
+  "results": {
+    "base": {
+      "rf": {
+        "mean": 0.9712,
+        "std": 0.0004,
+        "seeds": [
+          0.9711,
+          0.9719,
+          0.9706,
+          0.971,
+          0.9715
+        ]
+      },
+      "xgb": {
+        "mean": 0.987,
+        "std": 0.0021,
+        "seeds": [
+          0.988,
+          0.9888,
+          0.9873,
+          0.9829,
+          0.9881
+        ]
+      },
+      "time_s": 20
+    },
+    "ferrag": {
+      "rf": {
+        "mean": 0.8786,
+        "std": 0.0009,
+        "seeds": [
+          0.8781,
+          0.8785,
+          0.8799,
+          0.8791,
+          0.8772
+        ]
+      },
+      "xgb": {
+        "mean": 0.8986,
+        "std": 0.0017,
+        "seeds": [
+          0.9007,
+          0.9005,
+          0.8976,
+          0.8966,
+          0.8977
+        ]
+      },
+      "time_s": 27
+    },
+    "strict": {
+      "rf": {
+        "mean": 0.7266,
+        "std": 0.0008,
+        "seeds": [
+          0.7272,
+          0.7255,
+          0.7271,
+          0.7273,
+          0.7256
+        ]
+      },
+      "xgb": {
+        "mean": 0.7542,
+        "std": 0.0005,
+        "seeds": [
+          0.7539,
+          0.7538,
+          0.754,
+          0.7552,
+          0.754
+        ]
+      },
+      "time_s": 25
+    },
+    "noid": {
+      "rf": {
+        "mean": 0.8836,
+        "std": 0.0007,
+        "seeds": [
+          0.8827,
+          0.8843,
+          0.8845,
+          0.8832,
+          0.8836
+        ]
+      },
+      "xgb": {
+        "mean": 0.8947,
+        "std": 0.0016,
+        "seeds": [
+          0.8957,
+          0.8972,
+          0.8937,
+          0.8927,
+          0.8942
+        ]
+      },
+      "time_s": 42
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "edge_iiotset": {
+    "n_features": 45,
+    "n_sub": 3002,
+    "rf_macro_f1_sub": 0.824,
+    "xgb_macro_f1_sub": 0.8436,
+    "prompt_tokens_p50": 398.0
+  },
+  "ciciot2023": {
+    "n_features": 45,
+    "n_sub": 3173,
+    "rf_macro_f1_sub": 0.7736,
+    "xgb_macro_f1_sub": 0.777,
+    "prompt_tokens_p50": 350.0
+  },
+  "nbaiot": {
+    "n_features": 115,
+    "n_sub": 2999,
+    "rf_macro_f1_sub": 0.6934,
+    "xgb_macro_f1_sub": 0.6672,
+    "prompt_tokens_p50": 1493.0
+  }
+}

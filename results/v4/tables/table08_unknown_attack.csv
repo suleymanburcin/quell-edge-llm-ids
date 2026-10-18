@@ -1,0 +1,10 @@
+Held-out unit / metric,RF,XGBoost,LLM
+"Edge-IIoTset, 14 classes: mean recall",1.000,1.000,1.000
+lowest fold,1.000,1.000,0.999
+benign FPR (mean),0.000,0.000,0.001
+"CICIoT2023, 7 families: mean recall",0.869,0.850,0.863
+lowest family,0.459,0.476,0.459
+benign FPR (mean),0.155,0.148,0.226
+N-BaIoT: gafgyt held out,0.963,0.355,0.982
+mirai held out,0.999,1.000,0.620
+benign FPR (mean),0.000,0.005,0.001

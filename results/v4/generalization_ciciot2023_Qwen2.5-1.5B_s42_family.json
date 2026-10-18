@@ -1,0 +1,215 @@
+{
+  "dataset": "ciciot2023",
+  "benign": "BenignTraffic",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "featset": "paper",
+  "holdout": "family",
+  "config": {
+    "train_cap": 1500,
+    "epochs": 1,
+    "max_len": 404,
+    "seed": 42,
+    "unseen_cap": 5000,
+    "rf": "200 trees, balanced",
+    "xgb": "300 trees, depth 8",
+    "note": "revision 1: re_08 protocol + XGBoost, no truncation"
+  },
+  "fold_members": {
+    "DDoS": [
+      "DDoS-ACK_Fragmentation",
+      "DDoS-HTTP_Flood",
+      "DDoS-ICMP_Flood",
+      "DDoS-ICMP_Fragmentation",
+      "DDoS-PSHACK_Flood",
+      "DDoS-RSTFINFlood",
+      "DDoS-SYN_Flood",
+      "DDoS-SlowLoris",
+      "DDoS-SynonymousIP_Flood",
+      "DDoS-TCP_Flood",
+      "DDoS-UDP_Flood",
+      "DDoS-UDP_Fragmentation"
+    ],
+    "DoS": [
+      "DoS-HTTP_Flood",
+      "DoS-SYN_Flood",
+      "DoS-TCP_Flood",
+      "DoS-UDP_Flood"
+    ],
+    "Mirai": [
+      "Mirai-greeth_flood",
+      "Mirai-greip_flood",
+      "Mirai-udpplain"
+    ],
+    "Recon": [
+      "Recon-HostDiscovery",
+      "Recon-OSScan",
+      "Recon-PingSweep",
+      "Recon-PortScan",
+      "VulnerabilityScan"
+    ],
+    "Spoofing": [
+      "DNS_Spoofing",
+      "MITM-ArpSpoofing"
+    ],
+    "Web": [
+      "Backdoor_Malware",
+      "BrowserHijacking",
+      "CommandInjection",
+      "SqlInjection",
+      "Uploading_Attack",
+      "XSS"
+    ],
+    "BruteForce": [
+      "DictionaryBruteForce"
+    ]
+  },
+  "folds": {
+    "DDoS": {
+      "n_unseen": 5000,
+      "rf": {
+        "unseen_recall": 0.9998,
+        "benign_fpr": 0.1804,
+        "known_recall": 0.995
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.145,
+        "known_recall": 0.9972
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.381,
+        "known_recall": 0.9924
+      },
+      "sec": 2086
+    },
+    "DoS": {
+      "n_unseen": 5000,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.1664,
+        "known_recall": 0.9994
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.1694,
+        "known_recall": 0.999
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.3376,
+        "known_recall": 0.9972
+      },
+      "sec": 2967
+    },
+    "Mirai": {
+      "n_unseen": 5000,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.172,
+        "known_recall": 0.9994
+      },
+      "xgb": {
+        "unseen_recall": 0.9996,
+        "benign_fpr": 0.1706,
+        "known_recall": 0.9992
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.2594,
+        "known_recall": 0.9972
+      },
+      "sec": 3062
+    },
+    "Recon": {
+      "n_unseen": 2256,
+      "rf": {
+        "unseen_recall": 0.8023,
+        "benign_fpr": 0.1058,
+        "known_recall": 0.9982
+      },
+      "xgb": {
+        "unseen_recall": 0.8759,
+        "benign_fpr": 0.0916,
+        "known_recall": 0.9988
+      },
+      "llm": {
+        "unseen_recall": 0.8072,
+        "benign_fpr": 0.176,
+        "known_recall": 0.9984
+      },
+      "sec": 2932
+    },
+    "Spoofing": {
+      "n_unseen": 3128,
+      "rf": {
+        "unseen_recall": 0.4591,
+        "benign_fpr": 0.1312,
+        "known_recall": 0.9986
+      },
+      "xgb": {
+        "unseen_recall": 0.7196,
+        "benign_fpr": 0.1316,
+        "known_recall": 0.9992
+      },
+      "llm": {
+        "unseen_recall": 0.4594,
+        "benign_fpr": 0.1734,
+        "known_recall": 0.9992
+      },
+      "sec": 3145
+    },
+    "Web": {
+      "n_unseen": 167,
+      "rf": {
+        "unseen_recall": 0.9401,
+        "benign_fpr": 0.1516,
+        "known_recall": 0.9984
+      },
+      "xgb": {
+        "unseen_recall": 0.8802,
+        "benign_fpr": 0.1618,
+        "known_recall": 0.9986
+      },
+      "llm": {
+        "unseen_recall": 0.9162,
+        "benign_fpr": 0.1382,
+        "known_recall": 0.998
+      },
+      "sec": 3294
+    },
+    "BruteForce": {
+      "n_unseen": 84,
+      "rf": {
+        "unseen_recall": 0.881,
+        "benign_fpr": 0.1748,
+        "known_recall": 0.9994
+      },
+      "xgb": {
+        "unseen_recall": 0.4762,
+        "benign_fpr": 0.1674,
+        "known_recall": 0.9994
+      },
+      "llm": {
+        "unseen_recall": 0.8571,
+        "benign_fpr": 0.1144,
+        "known_recall": 0.999
+      },
+      "sec": 3310
+    }
+  },
+  "summary": {
+    "rf": {
+      "mean_unseen_recall": 0.8689,
+      "min": 0.4591
+    },
+    "xgb": {
+      "mean_unseen_recall": 0.8502,
+      "min": 0.4762
+    },
+    "llm": {
+      "mean_unseen_recall": 0.8628,
+      "min": 0.4594
+    }
+  }
+}

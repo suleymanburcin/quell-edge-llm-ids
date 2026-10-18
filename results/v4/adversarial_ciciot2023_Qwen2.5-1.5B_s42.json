@@ -1,0 +1,48 @@
+{
+  "dataset": "ciciot2023",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "seed": 42,
+  "featset": "paper",
+  "benign": "BenignTraffic",
+  "max_len": 412,
+  "n_features": 45,
+  "note": "revision 1: same protocol as re_09/re_09b + XGBoost",
+  "noise_curve": {
+    "eps": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "rf_macro_f1": [
+      0.7705,
+      0.3731,
+      0.3188,
+      0.2722,
+      0.1879
+    ],
+    "xgb_macro_f1": [
+      0.7197,
+      0.164,
+      0.1218,
+      0.106,
+      0.0616
+    ],
+    "llm_macro_f1": [
+      0.7648,
+      0.013,
+      0.0136,
+      0.0116,
+      0.0107
+    ]
+  },
+  "evasion": {
+    "n_samples": 800,
+    "tries": 20,
+    "eps": 0.3,
+    "rf_evasion_rate": 0.0163,
+    "xgb_evasion_rate": 0.3613,
+    "llm_evasion_rate": 0.7388
+  }
+}

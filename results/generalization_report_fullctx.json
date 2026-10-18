@@ -1,0 +1,340 @@
+{
+  "edge_iiotset": {
+    "benign": "Normal",
+    "model": "Qwen/Qwen2.5-1.5B",
+    "config": {
+      "train_cap": 1500,
+      "epochs": 1,
+      "max_len": 1024,
+      "trunc_rate_pct": 13.85,
+      "token_mean": 672.2,
+      "token_p99": 3043,
+      "note": "full-context re-run (truncation fix; MAX_LEN cap=1024)"
+    },
+    "folds": {
+      "Backdoor": {
+        "n_unseen": 2039,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.998,
+          "benign_fpr": 0.0095,
+          "known_recall": 0.9998
+        },
+        "sec": 4385.0
+      },
+      "DDoS_HTTP": {
+        "n_unseen": 2113,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0093,
+          "known_recall": 1.0
+        },
+        "sec": 4487.0
+      },
+      "DDoS_ICMP": {
+        "n_unseen": 2818,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.001,
+          "known_recall": 0.999
+        },
+        "sec": 4531.0
+      },
+      "DDoS_TCP": {
+        "n_unseen": 2050,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0093,
+          "known_recall": 1.0
+        },
+        "sec": 4444.0
+      },
+      "DDoS_UDP": {
+        "n_unseen": 2900,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.5066,
+          "benign_fpr": 0.001,
+          "known_recall": 1.0
+        },
+        "sec": 4538.0
+      },
+      "Fingerprinting": {
+        "n_unseen": 201,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.9552,
+          "benign_fpr": 0.0004,
+          "known_recall": 0.9998
+        },
+        "sec": 4617.0
+      },
+      "MITM": {
+        "n_unseen": 243,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0006,
+          "known_recall": 0.9998
+        },
+        "sec": 4556.0
+      },
+      "Password": {
+        "n_unseen": 1998,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0004,
+          "known_recall": 0.9998
+        },
+        "sec": 4464.0
+      },
+      "Port_Scanning": {
+        "n_unseen": 2015,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.9965,
+          "benign_fpr": 0.0008,
+          "known_recall": 0.9998
+        },
+        "sec": 4504.0
+      },
+      "Ransomware": {
+        "n_unseen": 2185,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.9995,
+          "benign_fpr": 0.001,
+          "known_recall": 0.9978
+        },
+        "sec": 4359.0
+      },
+      "SQL_injection": {
+        "n_unseen": 2063,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0016,
+          "known_recall": 1.0
+        },
+        "sec": 4462.0
+      },
+      "Uploading": {
+        "n_unseen": 2054,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.9645,
+          "benign_fpr": 0.0086,
+          "known_recall": 0.9998
+        },
+        "sec": 4489.0
+      },
+      "Vulnerability_scanner": {
+        "n_unseen": 2016,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.9995,
+          "benign_fpr": 0.0006,
+          "known_recall": 0.9994
+        },
+        "sec": 4216.0
+      },
+      "XSS": {
+        "n_unseen": 2011,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.0,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.9965,
+          "benign_fpr": 0.0049,
+          "known_recall": 1.0
+        },
+        "sec": 4478.0
+      }
+    }
+  },
+  "nbaiot": {
+    "benign": "benign",
+    "model": "Qwen/Qwen2.5-1.5B",
+    "config": {
+      "train_cap": 1500,
+      "epochs": 1,
+      "max_len": 1024,
+      "trunc_rate_pct": 100.0,
+      "token_mean": 1511.3,
+      "token_p99": 1691,
+      "note": "full-context re-run (truncation fix; MAX_LEN cap=1024)"
+    },
+    "folds": {
+      "gafgyt_combo": {
+        "n_unseen": 23706,
+        "rf": {
+          "unseen_recall": 0.9998,
+          "benign_fpr": 0.0006,
+          "known_recall": 0.9996
+        },
+        "llm": {
+          "unseen_recall": 0.9998,
+          "benign_fpr": 0.0124,
+          "known_recall": 0.9986
+        },
+        "sec": 4747.0
+      },
+      "gafgyt_junk": {
+        "n_unseen": 13019,
+        "rf": {
+          "unseen_recall": 0.9991,
+          "benign_fpr": 0.0006,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.9995,
+          "benign_fpr": 0.0062,
+          "known_recall": 0.9996
+        },
+        "sec": 4125.0
+      },
+      "gafgyt_scan": {
+        "n_unseen": 17931,
+        "rf": {
+          "unseen_recall": 0.8909,
+          "benign_fpr": 0.001,
+          "known_recall": 0.9996
+        },
+        "llm": {
+          "unseen_recall": 0.7491,
+          "benign_fpr": 0.0074,
+          "known_recall": 0.9992
+        },
+        "sec": 4410.0
+      },
+      "gafgyt_tcp": {
+        "n_unseen": 20660,
+        "rf": {
+          "unseen_recall": 0.9992,
+          "benign_fpr": 0.001,
+          "known_recall": 0.9996
+        },
+        "llm": {
+          "unseen_recall": 0.9995,
+          "benign_fpr": 0.009,
+          "known_recall": 0.9996
+        },
+        "sec": 4568.0
+      },
+      "gafgyt_udp": {
+        "n_unseen": 23688,
+        "rf": {
+          "unseen_recall": 0.9991,
+          "benign_fpr": 0.0008,
+          "known_recall": 0.9996
+        },
+        "llm": {
+          "unseen_recall": 0.9992,
+          "benign_fpr": 0.0036,
+          "known_recall": 0.9998
+        },
+        "sec": 4747.0
+      },
+      "mirai_scan": {
+        "n_unseen": 31868,
+        "rf": {
+          "unseen_recall": 0.9993,
+          "benign_fpr": 0.0008,
+          "known_recall": 0.9994
+        },
+        "llm": {
+          "unseen_recall": 0.9707,
+          "benign_fpr": 0.0098,
+          "known_recall": 0.9996
+        },
+        "sec": 5220.0
+      },
+      "mirai_syn": {
+        "n_unseen": 89906,
+        "rf": {
+          "unseen_recall": 0.9999,
+          "benign_fpr": 0.0008,
+          "known_recall": 0.9996
+        },
+        "llm": {
+          "unseen_recall": 0.995,
+          "benign_fpr": 0.0086,
+          "known_recall": 0.999
+        },
+        "sec": 8601.0
+      },
+      "mirai_udpplain": {
+        "n_unseen": 16612,
+        "rf": {
+          "unseen_recall": 1.0,
+          "benign_fpr": 0.001,
+          "known_recall": 1.0
+        },
+        "llm": {
+          "unseen_recall": 0.9995,
+          "benign_fpr": 0.0098,
+          "known_recall": 0.9992
+        },
+        "sec": 4335.0
+      }
+    }
+  }
+}

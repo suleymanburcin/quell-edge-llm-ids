@@ -1,0 +1,67 @@
+{
+  "dataset": "edge_iiotset",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "seed": 42,
+  "merge": "dequant",
+  "max_len": 427,
+  "token_len": {
+    "p50": 399.0,
+    "p95": 409.0,
+    "p99": 411.0,
+    "max": 411,
+    "max_len": 427,
+    "trunc_rate": 0.0
+  },
+  "n_train": 27328,
+  "n_eval": 31567,
+  "n_subset": 3002,
+  "precisions": {
+    "fp16": {
+      "acc": 0.914,
+      "macro_f1_all": 0.8916,
+      "macro_f1_present": 0.8916,
+      "n_classes_all": 15,
+      "n_classes_present": 15,
+      "subset": {
+        "acc": 0.9161,
+        "macro_f1_all": 0.8913,
+        "macro_f1_present": 0.8913,
+        "n_classes_all": 15,
+        "n_classes_present": 15
+      },
+      "eval_s": 597.9
+    },
+    "int8": {
+      "acc": 0.9115,
+      "macro_f1_all": 0.8901,
+      "macro_f1_present": 0.8901,
+      "n_classes_all": 15,
+      "n_classes_present": 15,
+      "subset": {
+        "acc": 0.9137,
+        "macro_f1_all": 0.8882,
+        "macro_f1_present": 0.8882,
+        "n_classes_all": 15,
+        "n_classes_present": 15
+      },
+      "eval_s": 980.5
+    },
+    "nf4": {
+      "acc": 0.914,
+      "macro_f1_all": 0.8914,
+      "macro_f1_present": 0.8914,
+      "n_classes_all": 15,
+      "n_classes_present": 15,
+      "subset": {
+        "acc": 0.9151,
+        "macro_f1_all": 0.8877,
+        "macro_f1_present": 0.8877,
+        "n_classes_all": 15,
+        "n_classes_present": 15
+      },
+      "eval_s": 570.9
+    }
+  },
+  "head_sanity_max_abs_diff": 0.0026645660400390625,
+  "total_s": 2168
+}

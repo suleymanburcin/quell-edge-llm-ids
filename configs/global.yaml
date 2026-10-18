@@ -1,4 +1,5 @@
-# QUELL global config - read by all scripts (reproducibility, locked decision #4)
+# QUELL v4 protocol summary (documentation only; the numbered scripts carry these settings,
+# see results/v4/PROVENANCE.md for the exact command of every result file)
 seed: 42
 paths:
   data_raw: data/raw
@@ -7,35 +8,33 @@ paths:
   results: results
   models: models
 
+data:
+  edge_iiotset: {source: ML-EdgeIIoT-dataset.csv, records: 157800, features: 45, feature_set: noid}
+  ciciot2023:   {source: merged CSV release, sampling: every 31st record, records: 1506018, features: 45}
+  nbaiot:       {source: full version (89 capture files), sampling: class-stratified random, records: 1500000, features: 115}
+
 split:
-  strategy: temporal      # session-aware / temporal - NOT random (locked decision #1)
-  train: 0.6
-  val: 0.2
-  test: 0.2
-  # each dataset is processed separately because the feature spaces differ (locked decision #6)
+  ratios: [0.6, 0.2, 0.2]
+  edge_iiotset: per-class temporal (frame.time)
+  ciciot2023: class-stratified after exact deduplication
+  nbaiot: grouped by capture file
 
 preprocessing:
-  fit_on: train_only       # encoding/scaling fit on train only (locked decision #3)
-  imbalance: smote_train_only   # if used, on train only
-  scaler: standard
+  categorical_encoding: label-free integer codes (pd.factorize)
+  training_subset: class-balanced, at most 2000 records per class
+  llm_max_len: p99 of token length on 3000 random serialized flows + 16, capped at 2048
 
-metrics:
-  - accuracy
-  - macro_f1
-  - per_class_f1
-  - latency_ms
-  - throughput_fps
-  - energy_j_per_inference
-  - peak_memory_mb
-  - adversarial_robust_accuracy
+detectors:
+  random_forest: {n_estimators: 300, class_weight: balanced}     # 200 trees in 15_generalization.py
+  xgboost: {n_estimators: 300, max_depth: 8, tree_method: hist}
+  llm:
+    models: [gpt2-medium, Qwen/Qwen2.5-0.5B, Qwen/Qwen2.5-1.5B, unsloth/Llama-3.2-1B]
+    finetune: {method: qlora (lora for gpt2), rank: 16, alpha: 32, dropout: 0.05, targets: [q_proj, v_proj],
+               epochs: 2, learning_rate: 2.0e-4, compute: bfloat16}
 
-baselines:
-  - xgboost
-  - random_forest
+quantization:
+  workstation: [fp16 (dequantized merge), int8 (LLM.int8), nf4]
+  device_gguf: [q8_0, q4_k_m]                                     # llama.cpp 4413a19
 
-llm:
-  candidates:            # chosen for the Jetson Orin Nano ~8 GB memory budget
-    - gpt2                # 355M
-    - meta-llama/Llama-3.2-1B
-  quant: [fp16, int8]
-  finetune: qlora
+metrics: [macro_f1, accuracy, per_class_f1, latency_ms, throughput_per_s, energy_mj, peak_ram_mb,
+          unseen_attack_recall, benign_fpr, evasion_rate]

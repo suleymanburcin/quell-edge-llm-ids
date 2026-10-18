@@ -1,0 +1,272 @@
+{
+  "dataset": "edge_iiotset",
+  "featset": "noid",
+  "seed": 42,
+  "model": "Qwen/Qwen2.5-1.5B",
+  "adapter": "/home/workspace/quell-edge-llm-ids/models/rev1/edge_iiotset_Qwen2.5-1.5B_s42_noid/adapter",
+  "hsj_config": {
+    "max_iter": 10,
+    "max_eval": 100,
+    "init_eval": 20,
+    "init_size": 100
+  },
+  "budgets_sigma_linf": [
+    0.1,
+    0.3,
+    1.0
+  ],
+  "n_attack": 60,
+  "n_noise": 2000,
+  "noise": {
+    "rf": {
+      "all_numeric_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8281,
+          0.4711,
+          0.4534,
+          0.4198,
+          0.3868
+        ]
+      },
+      "controllable_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8281,
+          0.4747,
+          0.4493,
+          0.4454,
+          0.4576
+        ]
+      }
+    },
+    "xgb": {
+      "all_numeric_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8585,
+          0.3881,
+          0.3685,
+          0.3501,
+          0.3289
+        ]
+      },
+      "controllable_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8585,
+          0.3815,
+          0.3487,
+          0.3456,
+          0.3449
+        ]
+      }
+    },
+    "llm_nf4": {
+      "all_numeric_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8812,
+          0.2093,
+          0.1592,
+          0.1429,
+          0.1422
+        ]
+      },
+      "controllable_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8812,
+          0.2315,
+          0.1954,
+          0.1658,
+          0.1596
+        ]
+      }
+    },
+    "llm_fp16": {
+      "all_numeric_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8833,
+          0.2075,
+          0.1552,
+          0.144,
+          0.1409
+        ]
+      },
+      "controllable_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8833,
+          0.2267,
+          0.1944,
+          0.173,
+          0.1575
+        ]
+      }
+    },
+    "llm_int8": {
+      "all_numeric_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8891,
+          0.2062,
+          0.1607,
+          0.1383,
+          0.1403
+        ]
+      },
+      "controllable_valid": {
+        "eps": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "macro_f1": [
+          0.8891,
+          0.2274,
+          0.1886,
+          0.1689,
+          0.1592
+        ]
+      }
+    }
+  },
+  "hsj": {
+    "rf": {
+      "n_attacked": 60,
+      "already_benign": 0,
+      "median_queries": 104,
+      "success_unbounded": 0.0,
+      "success_at_budget": {
+        "0.1": 0.0,
+        "0.3": 0.0,
+        "1.0": 0.0
+      },
+      "median_linf_sigma_successful": null
+    },
+    "xgb": {
+      "n_attacked": 60,
+      "already_benign": 0,
+      "median_queries": 104,
+      "success_unbounded": 0.0,
+      "success_at_budget": {
+        "0.1": 0.0,
+        "0.3": 0.0,
+        "1.0": 0.0
+      },
+      "median_linf_sigma_successful": null
+    },
+    "llm_nf4": {
+      "n_attacked": 60,
+      "already_benign": 0,
+      "median_queries": 104,
+      "success_unbounded": 0.2167,
+      "success_at_budget": {
+        "0.1": 0.0,
+        "0.3": 0.0,
+        "1.0": 0.0
+      },
+      "median_linf_sigma_successful": 45.7669
+    },
+    "llm_fp16": {
+      "n_attacked": 60,
+      "already_benign": 0,
+      "median_queries": 104,
+      "success_unbounded": 0.2333,
+      "success_at_budget": {
+        "0.1": 0.0,
+        "0.3": 0.0,
+        "1.0": 0.0
+      },
+      "median_linf_sigma_successful": 73.5696
+    },
+    "llm_int8": {
+      "n_attacked": 60,
+      "already_benign": 0,
+      "timeouts": 0,
+      "time_limit_s": 240,
+      "median_queries": 104,
+      "success_unbounded": 0.1333,
+      "success_at_budget": {
+        "0.1": 0.0,
+        "0.3": 0.0,
+        "1.0": 0.0
+      },
+      "median_linf_sigma_successful": 52.7604
+    }
+  },
+  "controllable_features": [
+    "tcp.len",
+    "tcp.seq",
+    "tcp.ack",
+    "tcp.ack_raw",
+    "tcp.checksum",
+    "icmp.checksum",
+    "icmp.seq_le",
+    "http.content_length",
+    "udp.time_delta",
+    "mqtt.len",
+    "mqtt.topic_len",
+    "mbtcp.len",
+    "mbtcp.trans_id"
+  ],
+  "total_s": 0
+}

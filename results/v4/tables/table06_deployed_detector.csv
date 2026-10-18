@@ -1,0 +1,6 @@
+,INT8 (Q8_0),4-bit (Q4_K_M)
+Model size,1.53 GiB,0.92 GiB
+Macro-F1 (agreement with HF-FP16),0.907 (99.1%),0.867 (94.2%)
+"Edge-IIoTset, 398 tokens",278 ms / 4.70 J,315 ms / 5.07 J
+"CICIoT2023, 355 tokens",248 ms / 4.20 J,279 ms / 4.47 J
+"N-BaIoT, 1,463 tokens",784 ms*,—

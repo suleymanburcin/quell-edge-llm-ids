@@ -1,0 +1,6 @@
+Detector (runtime),Macro-F1,Latency,Energy,Flows/s
+Random forest (scikit-learn),0.884,54.2 ms,394 mJ,"30,854"
+Random forest (ONNX Runtime),0.884,0.07 ms,0.52 mJ,"89,872"
+XGBoost (native),0.895,2.53 ms,20.0 mJ,"63,569"
+"LLM INT8 (llama.cpp, GPU)",0.892,278 ms,"4,703 mJ",3.6
+LLM vs. best classical,—,"≈4,000×","≈9,000×",—

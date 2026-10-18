@@ -1,0 +1,343 @@
+{
+  "dataset": "edge_iiotset",
+  "benign": "Normal",
+  "model": "Qwen/Qwen2.5-1.5B",
+  "featset": "noid",
+  "holdout": "class",
+  "config": {
+    "train_cap": 1500,
+    "epochs": 1,
+    "max_len": 427,
+    "seed": 42,
+    "unseen_cap": 5000,
+    "rf": "200 trees, balanced",
+    "xgb": "300 trees, depth 8",
+    "note": "revision 1: re_08 protocol + XGBoost, no truncation"
+  },
+  "fold_members": {
+    "Backdoor": [
+      "Backdoor"
+    ],
+    "DDoS_HTTP": [
+      "DDoS_HTTP"
+    ],
+    "DDoS_ICMP": [
+      "DDoS_ICMP"
+    ],
+    "DDoS_TCP": [
+      "DDoS_TCP"
+    ],
+    "DDoS_UDP": [
+      "DDoS_UDP"
+    ],
+    "Fingerprinting": [
+      "Fingerprinting"
+    ],
+    "MITM": [
+      "MITM"
+    ],
+    "Password": [
+      "Password"
+    ],
+    "Port_Scanning": [
+      "Port_Scanning"
+    ],
+    "Ransomware": [
+      "Ransomware"
+    ],
+    "SQL_injection": [
+      "SQL_injection"
+    ],
+    "Uploading": [
+      "Uploading"
+    ],
+    "Vulnerability_scanner": [
+      "Vulnerability_scanner"
+    ],
+    "XSS": [
+      "XSS"
+    ]
+  },
+  "folds": {
+    "Backdoor": {
+      "n_unseen": 2039,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "sec": 1994
+    },
+    "DDoS_HTTP": {
+      "n_unseen": 2113,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0002,
+        "known_recall": 1.0
+      },
+      "sec": 1994
+    },
+    "DDoS_ICMP": {
+      "n_unseen": 2818,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "sec": 2008
+    },
+    "DDoS_TCP": {
+      "n_unseen": 2050,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 0.9985,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "sec": 1992
+    },
+    "DDoS_UDP": {
+      "n_unseen": 2900,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 0.9998
+      },
+      "sec": 2016
+    },
+    "Fingerprinting": {
+      "n_unseen": 201,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0045,
+        "known_recall": 1.0
+      },
+      "sec": 2027
+    },
+    "MITM": {
+      "n_unseen": 243,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "sec": 2018
+    },
+    "Password": {
+      "n_unseen": 1998,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0008,
+        "known_recall": 1.0
+      },
+      "sec": 1990
+    },
+    "Port_Scanning": {
+      "n_unseen": 2015,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 0.999,
+        "benign_fpr": 0.0002,
+        "known_recall": 1.0
+      },
+      "sec": 1990
+    },
+    "Ransomware": {
+      "n_unseen": 2185,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 0.9995,
+        "benign_fpr": 0.0008,
+        "known_recall": 0.9998
+      },
+      "sec": 1995
+    },
+    "SQL_injection": {
+      "n_unseen": 2063,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0062,
+        "known_recall": 1.0
+      },
+      "sec": 1996
+    },
+    "Uploading": {
+      "n_unseen": 2054,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0008,
+        "known_recall": 1.0
+      },
+      "sec": 1992
+    },
+    "Vulnerability_scanner": {
+      "n_unseen": 2016,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 0.9998
+      },
+      "sec": 1990
+    },
+    "XSS": {
+      "n_unseen": 2011,
+      "rf": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "xgb": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "llm": {
+        "unseen_recall": 1.0,
+        "benign_fpr": 0.0,
+        "known_recall": 1.0
+      },
+      "sec": 1991
+    }
+  },
+  "summary": {
+    "rf": {
+      "mean_unseen_recall": 1.0,
+      "min": 1.0
+    },
+    "xgb": {
+      "mean_unseen_recall": 1.0,
+      "min": 1.0
+    },
+    "llm": {
+      "mean_unseen_recall": 0.9998,
+      "min": 0.9985
+    }
+  }
+}

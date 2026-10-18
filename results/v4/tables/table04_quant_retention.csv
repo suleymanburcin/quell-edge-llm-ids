@@ -1,0 +1,4 @@
+Precision,macro-F1,Accuracy
+FP16 (merged),0.8916,0.9140
+INT8,0.8901,0.9115
+4-bit (NF4),0.8914,0.9140

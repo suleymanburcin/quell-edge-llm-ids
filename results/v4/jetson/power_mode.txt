@@ -1,0 +1,4 @@
+NV Power Mode: MAXN_SUPER
+2
+SOC family:tegra234  Machine:NVIDIA Jetson Orin Nano Engineering Reference Developer Kit Super
+Error: Run this script(/usr/bin/jetson_clocks) as a root user

@@ -1,0 +1,33 @@
+{
+  "edge_iiotset": {
+    "Qwen/Qwen2.5-1.5B": {
+      "acc": 0.9238,
+      "macro_f1": 0.9066,
+      "weighted_f1": 0.9234,
+      "eval_scope": "tam test",
+      "max_len": 427,
+      "train_cap": 2000,
+      "epochs": 2,
+      "n_train": 27328,
+      "n_eval": 31567,
+      "note": "full-context re-run (truncation fix)",
+      "per_class_f1": {
+        "Backdoor": 0.9282,
+        "DDoS_HTTP": 0.8704,
+        "DDoS_ICMP": 0.9966,
+        "DDoS_TCP": 1.0,
+        "DDoS_UDP": 0.9543,
+        "Fingerprinting": 0.7268,
+        "MITM": 1.0,
+        "Normal": 0.9998,
+        "Password": 0.8283,
+        "Port_Scanning": 0.9118,
+        "Ransomware": 0.8841,
+        "SQL_injection": 0.8338,
+        "Uploading": 0.8338,
+        "Vulnerability_scanner": 0.9354,
+        "XSS": 0.8954
+      }
+    }
+  }
+}

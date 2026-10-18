@@ -1,0 +1,110 @@
+{
+  "edge_iiotset": {
+    "Qwen/Qwen2.5-0.5B": {
+      "acc": 0.9811,
+      "macro_f1": 0.9769,
+      "weighted_f1": 0.981,
+      "eval_scope": "tam test",
+      "max_len": 2048,
+      "train_cap": 2000,
+      "epochs": 2,
+      "n_train": 27328,
+      "n_eval": 31567,
+      "note": "full-context re-run (truncation fix)",
+      "per_class_f1": {
+        "Backdoor": 0.9412,
+        "DDoS_HTTP": 0.9555,
+        "DDoS_ICMP": 1.0,
+        "DDoS_TCP": 0.9995,
+        "DDoS_UDP": 0.9997,
+        "Fingerprinting": 0.9372,
+        "MITM": 1.0,
+        "Normal": 0.9999,
+        "Password": 0.9893,
+        "Port_Scanning": 0.9946,
+        "Ransomware": 0.9499,
+        "SQL_injection": 0.9777,
+        "Uploading": 0.9978,
+        "Vulnerability_scanner": 0.9539,
+        "XSS": 0.9581
+      }
+    }
+  },
+  "ciciot2023": {
+    "Qwen/Qwen2.5-0.5B": {
+      "acc": 0.9896,
+      "macro_f1": 0.8343,
+      "weighted_f1": 0.9901,
+      "eval_scope": "stratified subset (60,000)",
+      "max_len": 404,
+      "train_cap": 2000,
+      "epochs": 2,
+      "n_train": 47297,
+      "n_eval": 60000,
+      "note": "full-context re-run (truncation fix)",
+      "per_class_f1": {
+        "Backdoor_Malware": 0.3333,
+        "BenignTraffic": 0.9025,
+        "BrowserHijacking": 0.5455,
+        "CommandInjection": 0.8571,
+        "DDoS-ACK_Fragmentation": 0.9761,
+        "DDoS-HTTP_Flood": 0.9136,
+        "DDoS-ICMP_Flood": 0.9992,
+        "DDoS-ICMP_Fragmentation": 0.9923,
+        "DDoS-PSHACK_Flood": 0.9991,
+        "DDoS-RSTFINFlood": 0.9995,
+        "DDoS-SYN_Flood": 0.9993,
+        "DDoS-SlowLoris": 0.9062,
+        "DDoS-SynonymousIP_Flood": 0.9987,
+        "DDoS-TCP_Flood": 0.9986,
+        "DDoS-UDP_Flood": 0.9984,
+        "DDoS-UDP_Fragmentation": 0.9784,
+        "DNS_Spoofing": 0.6527,
+        "DictionaryBruteForce": 0.6923,
+        "DoS-HTTP_Flood": 0.783,
+        "DoS-SYN_Flood": 0.9946,
+        "DoS-TCP_Flood": 0.9965,
+        "DoS-UDP_Flood": 0.9969,
+        "MITM-ArpSpoofing": 0.8038,
+        "Mirai-greeth_flood": 0.9972,
+        "Mirai-greip_flood": 0.9959,
+        "Mirai-udpplain": 0.9948,
+        "Recon-HostDiscovery": 0.7677,
+        "Recon-OSScan": 0.5267,
+        "Recon-PingSweep": 1.0,
+        "Recon-PortScan": 0.6462,
+        "SqlInjection": 0.6,
+        "Uploading_Attack": 0.0,
+        "VulnerabilityScan": 0.9474,
+        "XSS": 0.5714
+      }
+    }
+  },
+  "nbaiot": {
+    "Qwen/Qwen2.5-0.5B": {
+      "acc": 0.9822,
+      "macro_f1": 0.8034,
+      "weighted_f1": 0.9828,
+      "eval_scope": "stratified subset (60,001)",
+      "max_len": 1712,
+      "train_cap": 2000,
+      "epochs": 2,
+      "n_train": 22000,
+      "n_eval": 60001,
+      "note": "full-context re-run (truncation fix)",
+      "per_class_f1": {
+        "benign": 0.9915,
+        "gafgyt_combo": 0.9952,
+        "gafgyt_junk": 0.8969,
+        "gafgyt_scan": 0.9948,
+        "gafgyt_tcp": 0.9994,
+        "gafgyt_udp": 0.9994,
+        "mirai_ack": 0.0,
+        "mirai_scan": 0.9832,
+        "mirai_syn": 0.977,
+        "mirai_udp": 0.0,
+        "mirai_udpplain": 0.9995
+      }
+    }
+  }
+}
